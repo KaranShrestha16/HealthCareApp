@@ -1,5 +1,6 @@
 package www.myandroidcode.mydoctor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -78,7 +79,9 @@ FrameLayout medicine,healthcare,prescription,ambulance,consultancy,hospital,home
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Hospital Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Hospitals.class);
+                startActivity(intent);
+                finish();
             }
         });
 

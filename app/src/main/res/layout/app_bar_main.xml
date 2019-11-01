@@ -21,18 +21,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="M y  D o c t o r"
-                android:textColor="#ff8855"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:text="Health Care App"
+                android:textColor="#ff8855"
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_shoppingcart"
                 android:layout_gravity="right"
-                />
+                android:src="@drawable/ic_shoppingcart" />
 
 
         </android.support.v7.widget.Toolbar>
