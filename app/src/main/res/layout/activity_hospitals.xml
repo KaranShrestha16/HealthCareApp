@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Hospitals"
+    android:background="@color/card_bg_color"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -39,7 +40,24 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <EditText
+        android:id="@+id/hospitalSearchButton"
+        android:background="@drawable/search_input_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+
+        android:drawableLeft="@drawable/icon_search"
+        android:hint="Search"
+        android:textAlignment="center"
+
+
+        />
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/hospitalRecycleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

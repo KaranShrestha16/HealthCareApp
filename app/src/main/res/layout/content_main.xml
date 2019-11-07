@@ -269,10 +269,10 @@
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
-                                android:text="Consultancy"/>
+                                android:text="Doctor"/>
                         </LinearLayout>
                         <FrameLayout
-                            android:id="@+id/consultancy"
+                            android:id="@+id/doctor"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </FrameLayout>

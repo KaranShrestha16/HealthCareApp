@@ -65,12 +65,11 @@ FrameLayout medicine,healthcare,prescription,ambulance,consultancy,hospital,home
         });
 
 
-        consultancy = (FrameLayout)findViewById(R.id.consultancy);
+        consultancy = (FrameLayout)findViewById(R.id.doctor);
         consultancy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Consultancy Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 
