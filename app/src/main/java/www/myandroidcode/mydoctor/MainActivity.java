@@ -121,12 +121,12 @@ FrameLayout medicine,healthcare,prescription,ambulance,consultancy,hospital,home
             }
         });
 
-        ImageView cart = (ImageView)findViewById(R.id.cart);
+        ImageView cart = (ImageView)findViewById(R.id.imageview_profile);
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Cart Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"UserProfile Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 

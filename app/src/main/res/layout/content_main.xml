@@ -13,10 +13,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Browse All Product Categories"
+        android:text="Browse All HealthCare Services "
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:textSize="16sp"
+        android:textColor="@color/colorPrimaryDark"
         android:fontFamily="monospace"
         android:textStyle="bold"/>
 
@@ -69,7 +70,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -113,7 +114,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -159,7 +160,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -221,7 +222,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -265,7 +266,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -311,7 +312,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -371,7 +372,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -415,7 +416,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -461,7 +462,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
@@ -565,7 +566,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#bcbcbc"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
