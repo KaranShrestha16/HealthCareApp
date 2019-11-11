@@ -19,7 +19,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-FrameLayout medicine,healthcare,prescription,ambulance,consultancy,hospital,homeservice,nursing,online,emergency;
+FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_bim,fl_bloodbank
+        ,fl_ambulance,fl_funeralVehicle,fl_feedback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,54 +28,29 @@ FrameLayout medicine,healthcare,prescription,ambulance,consultancy,hospital,home
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        medicine = (FrameLayout)findViewById(R.id.medicine);
-        medicine.setOnClickListener(new View.OnClickListener() {
+        fl_clinic = (FrameLayout)findViewById(R.id.fl_clinic);
+        fl_clinic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Medicine Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Clinic Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 
-        healthcare = (FrameLayout)findViewById(R.id.healthcare);
-        healthcare.setOnClickListener(new View.OnClickListener() {
+        fl_doctor = (FrameLayout)findViewById(R.id.fl_doctor);
+        fl_doctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"HealthCare Clicked",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        prescription = (FrameLayout)findViewById(R.id.prescription);
-        prescription.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"Prescription Clicked",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        ambulance = (FrameLayout)findViewById(R.id.ambulance);
-        ambulance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"Ambulance Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Doctors.class);
+                startActivity(intent);
+                finish();
             }
         });
 
 
-        consultancy = (FrameLayout)findViewById(R.id.doctor);
-        consultancy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        hospital = (FrameLayout)findViewById(R.id.hospital);
-        hospital.setOnClickListener(new View.OnClickListener() {
+        fl_hospital = (FrameLayout)findViewById(R.id.fl_hospital);
+        fl_hospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -84,40 +60,66 @@ FrameLayout medicine,healthcare,prescription,ambulance,consultancy,hospital,home
             }
         });
 
-        homeservice = (FrameLayout)findViewById(R.id.homeservice);
-        homeservice.setOnClickListener(new View.OnClickListener() {
+        fl_pharmacy = (FrameLayout)findViewById(R.id.fl_pharmacy);
+        fl_pharmacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"HomeService Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Pharmacy Clicked",Toast.LENGTH_SHORT).show();
+    }
+});
+
+
+        fl_medicineTracker = (FrameLayout)findViewById(R.id.fl_medicineTracker);
+        fl_medicineTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"Medicine Tracker Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 
-        nursing = (FrameLayout)findViewById(R.id.nursing);
-        nursing.setOnClickListener(new View.OnClickListener() {
+        fl_bim = (FrameLayout)findViewById(R.id.fl_bim);
+        fl_bim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"Nursing Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"BIM Calculator Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 
-        online = (FrameLayout)findViewById(R.id.onlinepurcahse);
-        online.setOnClickListener(new View.OnClickListener() {
+        fl_bloodbank = (FrameLayout)findViewById(R.id.fl_bloodbank);
+        fl_bloodbank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Online Purchase Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Blood Bank Clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fl_ambulance = (FrameLayout)findViewById(R.id.fl_ambulance);
+        fl_ambulance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),"Ambulance Clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fl_funeralVehicle = (FrameLayout)findViewById(R.id.fl_funeralVehicle);
+        fl_funeralVehicle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),"Funeral Vehicle  Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 
 
-        emergency = (FrameLayout)findViewById(R.id.emergancy);
-        emergency.setOnClickListener(new View.OnClickListener() {
+        fl_feedback = (FrameLayout)findViewById(R.id.fl_feedback);
+        fl_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Emergency Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Feedback Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 

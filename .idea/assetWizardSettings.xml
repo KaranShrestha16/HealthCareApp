@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_search_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/E:/android%20projects1/plugins/android/lib/android.jar!/images/material_design_icons/maps/ic_hotel_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,10 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="opacityPercent" value="88" />
-                            <entry key="outputName" value="icon_search" />
-                            <entry key="sourceFile" value="C:\Users\karan" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="color" value="e75e5c" />
+                            <entry key="outputName" value="ic_feedback" />
+                            <entry key="sourceFile" value="C:\Users\karan\Downloads\feedback.svg" />
                           </map>
                         </option>
                       </PersistentState>

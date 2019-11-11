@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#FFFFFF"
+            android:background="@drawable/gradient"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Health Care App"
-                android:textColor="#ff8855"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <ImageView

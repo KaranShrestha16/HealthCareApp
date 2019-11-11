@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@drawable/card_bg"
-    android:layout_margin="5dp"
+    android:background="@drawable/border"
+
     >
 
     <android.support.v7.widget.AppCompatImageView
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="#ff8855"
+            android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
             android:fontFamily="monospace"
             android:text="Bir Hospital International Hospital"
@@ -56,7 +56,7 @@
             />
 
         <TextView
-            android:id="@+id/readmore"
+            android:id="@+id/tv_readmore_hospital"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

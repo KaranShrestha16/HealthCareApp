@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.HospitalModel;
+import www.myandroidcode.mydoctor.Hospital_Details;
 import www.myandroidcode.mydoctor.R;
 
 public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.HospitalViewHolder> implements Filterable {
@@ -42,12 +44,20 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HospitalViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HospitalViewHolder holder, int position) {
         holder.linearLayout.setAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_transition_animation));
         holder.tvName.setText(hospitalDataFilter.get(position).getName());
         holder.tvContact.setText(hospitalDataFilter.get(position).getContatct());
         holder.tvAddress.setText(hospitalDataFilter.get(position).getAddress());
 //        holder.imgView.setText(hospitalData.get(position).getAddress());
+
+        holder.tv_readmore_hospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, Hospital_Details.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -88,7 +98,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
     }
 
     public class HospitalViewHolder extends RecyclerView.ViewHolder{
-        private TextView tvName,tvContact,tvAddress;
+        private TextView tvName,tvContact,tvAddress,tv_readmore_hospital;
         private ImageView imgView;
         private LinearLayout linearLayout;
 
@@ -100,6 +110,8 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
             imgView=itemView.findViewById(R.id.txtHospital_image );
             tvAddress=itemView.findViewById(R.id.txtHospital_location );
             tvContact=itemView.findViewById(R.id.txtHospital_contatc );
+            tv_readmore_hospital=itemView.findViewById(R.id.tv_readmore_hospital );
+
         }
     }
 }
