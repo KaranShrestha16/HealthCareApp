@@ -32,8 +32,10 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
         fl_clinic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Clinics.class);
+                startActivity(intent);
+                finish();
 
-                Toast.makeText(getApplicationContext(),"Clinic Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 

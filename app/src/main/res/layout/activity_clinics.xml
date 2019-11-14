@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Doctors"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Clinics">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbardoctor"
+        android:id="@+id/toolbarClinic"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/gradient"
@@ -18,12 +18,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Doctor List"
+            android:text="Clinic List"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/doctorBack"
+            android:id="@+id/clinicBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back_24dp" />
@@ -31,7 +31,7 @@
 
 
         <ImageView
-            android:id="@+id/doctorRefresh"
+            android:id="@+id/clinicRefresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -53,7 +53,7 @@
             android:id="@+id/txt_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="D O C T O R L I S T"
+            android:text="C L I N I C   L I S T"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:layout_marginTop="50dp"
@@ -90,7 +90,7 @@
                     android:src="@drawable/icon_search" />
 
                 <EditText
-                    android:id="@+id/txtSearchDoctor"
+                    android:id="@+id/txtSearchClinic"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -135,7 +135,7 @@
 
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerView_doctor"
+                    android:id="@+id/recyclerView_clinic"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:divider="#18000000"
@@ -148,5 +148,6 @@
 
 
     </RelativeLayout>
+
 
 </LinearLayout>

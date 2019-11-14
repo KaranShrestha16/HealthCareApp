@@ -106,10 +106,10 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
         public HospitalViewHolder(View itemView) {
             super(itemView);
             linearLayout=itemView.findViewById(R.id.hospital_layout);
-            tvName=itemView.findViewById(R.id.txtHospital_name );
+            tvName=itemView.findViewById(R.id.tv_Hospital_name );
             imgView=itemView.findViewById(R.id.txtHospital_image );
-            tvAddress=itemView.findViewById(R.id.txtHospital_location );
-            tvContact=itemView.findViewById(R.id.txtHospital_contatc );
+            tvAddress=itemView.findViewById(R.id.tv_Hospital_location );
+            tvContact=itemView.findViewById(R.id.tv_Hospital_contatc );
             tv_readmore_hospital=itemView.findViewById(R.id.tv_readmore_hospital );
 
         }
