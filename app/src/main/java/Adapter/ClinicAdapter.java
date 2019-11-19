@@ -18,9 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.ClinicModel;
+import Model.HospitalModel;
+import www.myandroidcode.mydoctor.Hospital_Details;
 import www.myandroidcode.mydoctor.R;
 
-public class ClinicAdapter extends RecyclerView.Adapter<ClinicAdapter.ClinicViewHolde> implements Filterable {
+public class ClinicAdapter extends RecyclerView.Adapter<ClinicAdapter.ClinicViewHolde> implements  Filterable{
     Context context;
     List<ClinicModel>clinicData;
     List<ClinicModel> clinicDataFilter;
@@ -29,13 +31,14 @@ public class ClinicAdapter extends RecyclerView.Adapter<ClinicAdapter.ClinicView
         this.context = context;
         this.clinicData = clinicData;
         this.clinicDataFilter = clinicData;
+
     }
 
     @NonNull
     @Override
     public ClinicViewHolde onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layout = LayoutInflater.from(context).inflate(R.layout.clinic_recyclerview, parent, false );
-        return new ClinicAdapter.ClinicViewHolde(layout);
+        return new ClinicViewHolde(layout);
     }
 
     @Override
@@ -44,25 +47,19 @@ public class ClinicAdapter extends RecyclerView.Adapter<ClinicAdapter.ClinicView
         holder.tvName.setText(clinicDataFilter.get(position).getName());
         holder.tvContact.setText(clinicDataFilter.get(position).getContact());
         holder.tvAddress.setText(clinicDataFilter.get(position).getAddress());
-//        holder.imgView.setText(clinicDataFilter.get(position).getAddress());
+//        holder.imgView.setText(hospitalData.get(position).getAddress());
 
-        holder.tv_readmore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent=new Intent(context, Hospital_Details.class);
-//                context.startActivity(intent);
-            }
-        });
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return clinicDataFilter.size();
     }
 
     @Override
     public Filter getFilter() {
-        return new Filter() {
+        return  new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 String Key= constraint.toString();
@@ -80,7 +77,6 @@ public class ClinicAdapter extends RecyclerView.Adapter<ClinicAdapter.ClinicView
                 FilterResults filterResults=new FilterResults();
                 filterResults.values=clinicDataFilter;
                 return filterResults;
-
             }
 
             @Override

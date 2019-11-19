@@ -129,8 +129,10 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MyProfile.class);
+                startActivity(intent);
+                finish();
 
-                Toast.makeText(getApplicationContext(),"UserProfile Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 

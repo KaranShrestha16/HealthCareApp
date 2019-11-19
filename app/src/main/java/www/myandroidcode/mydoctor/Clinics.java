@@ -37,16 +37,16 @@ public class Clinics extends AppCompatActivity {
         recyclerView= findViewById(R.id.recyclerView_clinic);
         clinicData= new ArrayList<>();
 
-        clinicData.add(new ClinicModel(1,"Bir Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-        clinicData.add(new ClinicModel(2,"Grand International Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-        clinicData.add(new ClinicModel(4,"Meridian Health Care Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-        clinicData.add(new ClinicModel(5,"Dirghayu Guru Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-        clinicData.add(new ClinicModel(6,"Metro Kathmandu Hospital ","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(1,"Simple Plus Dental Clinic ","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(2,"Healthy Smiles","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(4," Boudha Polyclinic ","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(5," Namaste Nepal Medical Center ","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(6,"Spark Polyclinic ","9812345678","New Road, Kathmandu, Nepal"));
         clinicData.add(new ClinicModel(7,"Kantipur Dental Collge Teaching  Hospital ","9812345678","New Road, Kathmandu, Nepal"));
         clinicData.add(new ClinicModel(8,"Himal Dental Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-        clinicData.add(new ClinicModel(9,"Kathmandu Model Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-        clinicData.add(new ClinicModel(10,"B & B Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-        clinicData.add(new ClinicModel(11,"Civil Service Hospital ","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(9,"DENTAL CARE HOSPITAL PVT. LTD","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(10,"Boudha Polyclinic","9812345678","New Road, Kathmandu, Nepal"));
+        clinicData.add(new ClinicModel(11,"Himal Dental Hospital","9812345678","New Road, Kathmandu, Nepal"));
 
         clinicAdapter= new ClinicAdapter(this,clinicData);
         recyclerView.setAdapter(clinicAdapter);

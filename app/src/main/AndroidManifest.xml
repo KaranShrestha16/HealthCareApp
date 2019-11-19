@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Clinics"></activity>
+        <activity android:name=".AddReminder"></activity>
+        <activity android:name=".MedicineReminder" />
+        <activity android:name=".MyProfile" />
+        <activity android:name=".Clinics" />
         <activity android:name=".Hospital_Details" />
         <activity android:name=".Doctors" />
         <activity android:name=".Hospitals" />
