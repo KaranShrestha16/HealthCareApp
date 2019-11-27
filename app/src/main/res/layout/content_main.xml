@@ -433,7 +433,6 @@
 
                 </LinearLayout>
 
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -457,7 +456,7 @@
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginTop="25dp"
-                                android:src="@drawable/ic_car"/>
+                                android:src="@drawable/ic_health_packages"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -466,18 +465,21 @@
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
-                                android:text="Funeral Vehicles"/>
-
-                            <FrameLayout
-                                android:id="@+id/fl_funeralVehicle"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"></FrameLayout>
+                                android:text= "Health Packages"/>
                         </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_healthPackages"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
 
                     </RelativeLayout>
 
 
                 </LinearLayout>
+
+
+
 
 
             </LinearLayout>
@@ -558,7 +560,7 @@
                                 android:textSize="14sp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
-                                android:text="Feedback"/>
+                                android:text="Get Appointmant"/>
                         </LinearLayout>
 
                         <FrameLayout

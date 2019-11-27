@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_bim,fl_bloodbank
+private FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_bim,fl_bloodbank
         ,fl_ambulance,fl_funeralVehicle,fl_feedback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +66,11 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
         fl_pharmacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"Pharmacy Clicked",Toast.LENGTH_SHORT).show();
-    }
-});
+                Intent intent = new Intent(MainActivity.this, Pharmacy.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         fl_medicineTracker = (FrameLayout)findViewById(R.id.fl_medicineTracker);
@@ -84,7 +85,9 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
         fl_bim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"BIM Calculator Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, BIM.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -93,7 +96,9 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Blood Bank Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, BloodBank.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -106,7 +111,7 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
             }
         });
 
-        fl_funeralVehicle = (FrameLayout)findViewById(R.id.fl_funeralVehicle);
+        fl_funeralVehicle = (FrameLayout)findViewById(R.id.fl_healthPackages);
         fl_funeralVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -161,7 +166,6 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -170,12 +174,6 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -186,18 +184,12 @@ FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_b
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_contact_us) {
+            Toast.makeText(this, "Click Contact Us", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_setting) {
+            Toast.makeText(this, "Click Settings", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_about_us) {
+            Toast.makeText(this, "Click About Us", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

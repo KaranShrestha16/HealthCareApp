@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.DoctorModel;
-import Model.HospitalModel;
-import www.myandroidcode.mydoctor.Doctors;
 import www.myandroidcode.mydoctor.R;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorViewHolde> implements Filterable {
@@ -39,7 +37,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
     @NonNull
     @Override
     public DoctorViewHolde onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(context).inflate(R.layout.doctor_recycler_view, parent, false );
+        View layout = LayoutInflater.from(context).inflate(R.layout.recycler_view_doctor, parent, false );
         return new DoctorViewHolde(layout);
     }
 

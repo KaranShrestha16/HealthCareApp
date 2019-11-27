@@ -1,7 +1,6 @@
 package Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,8 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.ClinicModel;
-import Model.HospitalModel;
-import www.myandroidcode.mydoctor.Hospital_Details;
 import www.myandroidcode.mydoctor.R;
 
 public class ClinicAdapter extends RecyclerView.Adapter<ClinicAdapter.ClinicViewHolde> implements  Filterable{
@@ -37,7 +34,7 @@ public class ClinicAdapter extends RecyclerView.Adapter<ClinicAdapter.ClinicView
     @NonNull
     @Override
     public ClinicViewHolde onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(context).inflate(R.layout.clinic_recyclerview, parent, false );
+        View layout = LayoutInflater.from(context).inflate(R.layout.recycler_view_clinic, parent, false );
         return new ClinicViewHolde(layout);
     }
 

@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BIM"></activity>
+        <activity android:name=".AddDoctor"></activity>
+        <activity android:name=".AdminDashboard" />
+        <activity android:name=".AdminHospital" />
+        <activity android:name=".BloodBank" />
+        <activity android:name=".Pharmacy" />
+        <activity android:name=".GetAppointment" />
+        <activity android:name=".BIM" />
         <activity android:name=".AddReminder" />
         <activity android:name=".MedicineReminder" />
         <activity android:name=".MyProfile" />

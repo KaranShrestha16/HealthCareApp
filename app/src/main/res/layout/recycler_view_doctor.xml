@@ -18,7 +18,7 @@
             android:layout_width="75dp"
             android:id="@+id/doctor_image"
             android:layout_height="75dp"
-            android:src="@drawable/pic2" />
+            android:src="@drawable/ic_user" />
     </FrameLayout>
 
     <LinearLayout

@@ -8,35 +8,36 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HospitalFragmentAdapter extends FragmentPagerAdapter {
+public class LoginFragmentAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment>fragmentList = new ArrayList<>();
+    private List<Fragment> fragmentList = new ArrayList<>();
     private List<String >  fragmentTitle= new ArrayList<>();
 
-    public HospitalFragmentAdapter(FragmentManager fm) {
+    public LoginFragmentAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
-    public Fragment getItem(int i)
-    {
-        return fragmentList.get(i);
+    public Fragment getItem(int position) {
+        return fragmentList.get(position);
     }
+
     @Nullable
     @Override
     public CharSequence getPageTitle(int position)
     {
         return fragmentTitle.get(position);
     }
+
     @Override
-    public int getCount()
-    {
+    public int getCount() {
         return fragmentList.size();
     }
 
-    public void addHospitalFragment(Fragment fragment, String title){
+    public void addLoginFragment(Fragment fragment, String title){
         fragmentList.add(fragment);
         fragmentTitle.add(title);
     }
-
 }
+
+

@@ -1,6 +1,8 @@
 package www.myandroidcode.mydoctor;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,57 +13,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Adapter.LoginFragmentAdapter;
+import Fragments.Fragment_AdminLogin;
+import Fragments.Fragment_PatientLogin;
+
 public class Login extends AppCompatActivity {
-     private EditText ed_email,ed_password;
-     private TextView tv_signup,tv_forget_password;
-     private FrameLayout btnLogin;
+    private ViewPager loginViewPager;
+    private TabLayout loginTablayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-         btnLogin =(FrameLayout)findViewById(R.id.btn_login);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent signup = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(signup);
-                finish();
-            }
-        });
+        loginTablayout=findViewById(R.id.loginTablayout);
+        loginViewPager=findViewById(R.id.loginViewPager);
 
-        ImageView facebook =(ImageView)findViewById(R.id.facebook_round);
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        LoginFragmentAdapter adapter= new LoginFragmentAdapter(getSupportFragmentManager());
+        adapter.addLoginFragment(new Fragment_PatientLogin(),"Patient");
+        adapter.addLoginFragment(new Fragment_AdminLogin(),"Admin");
 
-                Toast.makeText(getApplicationContext(),"facebook clicked",Toast.LENGTH_SHORT).show();
+        loginViewPager.setAdapter(adapter);
+        loginTablayout.setupWithViewPager(loginViewPager);
 
-            }
-        });
-
-
-        ImageView twitter =(ImageView) findViewById(R.id.twitter_round);
-        twitter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"twitter clicked",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        tv_signup =(TextView) findViewById(R.id.tv_signup);
-        tv_signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent signup = new Intent(getApplicationContext(),Registration.class);
-                startActivity(signup);
-
-            }
-        });
 
 
 
