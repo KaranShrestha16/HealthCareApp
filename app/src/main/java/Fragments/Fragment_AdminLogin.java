@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import www.myandroidcode.mydoctor.AdminDashboard;
 import www.myandroidcode.mydoctor.MainActivity;
 import www.myandroidcode.mydoctor.R;
 
@@ -36,7 +37,7 @@ public class Fragment_AdminLogin extends Fragment {
         fl_adminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), AdminDashboard.class);
                 startActivity(intent);
             }
         });
