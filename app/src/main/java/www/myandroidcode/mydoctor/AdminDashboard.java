@@ -8,14 +8,12 @@ import android.widget.FrameLayout;
 
 public class AdminDashboard extends AppCompatActivity {
 
-    private FrameLayout fl_clinic,fl_doctor,fl_hospital, fl_appointmnet;
+    private FrameLayout fl_doctor,fl_hospital, fl_appointmnet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
-
-        fl_clinic =findViewById(R.id.fl_admin_clinic);
         fl_doctor =findViewById(R.id.fl_admin_doctor);
         fl_hospital =findViewById(R.id.fl_admin_hospital);
         fl_appointmnet =findViewById(R.id.fl_admin_appointment);
@@ -28,6 +26,17 @@ public class AdminDashboard extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        fl_doctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminDashboard.this, AdminDoctor.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
 
 

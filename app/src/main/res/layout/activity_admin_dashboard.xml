@@ -21,6 +21,14 @@
             android:text="Mobile Health Care"
             android:textColor="@color/white"
             android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/adminDashboard_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ic_logout_white" />
+
 
 
     </android.support.v7.widget.Toolbar>
@@ -57,7 +65,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginTop="25dp"
-                        android:src="@drawable/ic_clinics"/>
+                        android:src="@drawable/ic_hospital"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -66,10 +74,10 @@
                         android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="15dp"
-                        android:text="Clinic"/>
+                        android:text="Hospital"/>
                 </LinearLayout>
                 <FrameLayout
-                    android:id="@+id/fl_admin_clinic"
+                    android:id="@+id/fl_admin_hospital"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 </FrameLayout>
@@ -111,6 +119,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="15dp"
                         android:text="Doctor"/>
+
+
                 </LinearLayout>
                 <FrameLayout
                     android:id="@+id/fl_admin_doctor"
@@ -147,97 +157,6 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginTop="25dp"
-                        android:src="@drawable/ic_hospital"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColor"
-                        android:textSize="14sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:text="Hospital"/>
-                </LinearLayout>
-                <FrameLayout
-                    android:id="@+id/fl_admin_hospital"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </FrameLayout>
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    // 2 row
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-
-            android:layout_width="0dp"
-            android:layout_weight="1"
-
-            android:layout_marginRight="5dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-
-
-                </LinearLayout>
-                <FrameLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </FrameLayout>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:layout_marginRight="5dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="25dp"
                         android:src="@drawable/ic_feedback"/>
 
                     <TextView
@@ -247,54 +166,10 @@
                         android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="15dp"
-                        android:text="Get Appointmant"/>
+                        android:text="Get Appointment"/>
                 </LinearLayout>
-
                 <FrameLayout
                     android:id="@+id/fl_admin_appointment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginRight="0dp"></FrameLayout>
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-
-            android:layout_marginRight="5dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:textColor="#bcbcbc"
-                        android:textSize="14sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:text="Hospital"/>
-                </LinearLayout>
-                <FrameLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 </FrameLayout>
@@ -306,5 +181,7 @@
 
 
     </LinearLayout>
+
+
 
 </LinearLayout>

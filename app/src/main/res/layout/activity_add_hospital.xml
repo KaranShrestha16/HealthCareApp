@@ -1,9 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient"
     tools:context=".AddHospital">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar_addHospital"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@drawable/gradient"
+    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Hospital"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/add_hospitalBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back_24dp" />
+
+
+
+</android.support.v7.widget.Toolbar>
+
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_hospital"
+            android:layout_marginTop="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_user"/>
+
+        <Button
+            android:id="@+id/btn_addImage_hopsital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/search_input_style"
+            android:text="Upload Image"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+
+            android:theme="@style/TextLabel">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_hospital_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Hospital Name"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:paddingLeft="7.0dip"
+                android:textSize="14sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_hospital_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Hospital Address"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:paddingLeft="7.0dip"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="14sp"
+
+                />
+
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_hospital_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Hospital Contact"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLength="20"
+                android:paddingLeft="7.0dip"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="14sp"
+
+                />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_hospital_about"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:hint="About "
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine"
+                android:paddingLeft="7.0dip"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="14sp"
+
+                />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_addHospital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_input_style"
+            android:layout_marginBottom="30dp"
+            android:text="Add Hospital"/>
+
+    </LinearLayout>
+
+
+
+</ScrollView>
+
+
+
+
+
+
+
+
+</LinearLayout>

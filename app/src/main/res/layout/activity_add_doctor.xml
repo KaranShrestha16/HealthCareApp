@@ -1,9 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:orientation="vertical"
     tools:context=".AddDoctor">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_addDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/gradient"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Doctor"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/add_DoctorBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_24dp" />
+
+
+
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_doctor"
+                android:layout_marginTop="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_user"/>
+
+            <Button
+                android:id="@+id/btn_addImage_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/search_input_style"
+                android:text="Upload Image"
+                />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+
+                android:theme="@style/TextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_doctor_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Doctor Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:paddingLeft="7.0dip"
+                    android:textSize="14sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_doctor_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Doctor Address"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingLeft="7.0dip"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp"
+
+                    />
+
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_doctor_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Doctor Contact"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLength="20"
+                    android:paddingLeft="7.0dip"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp"
+
+                    />
+
+
+            </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="@color/white"
+                android:textSize="19dp"/>
+
+
+           <RadioGroup
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_marginBottom="25dp"
+               >
+
+              <RadioButton
+                  android:id="@+id/rbtn_male"
+                  android:checked="true"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="15dp"
+                  android:textColor="@color/white"
+                  android:text="Male"
+                  />
+               <RadioButton
+                   android:id="@+id/rbtn_female"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textSize="15dp"
+                   android:textColor="@color/white"
+                   android:text="Female"
+                   />
+               <RadioButton
+                   android:id="@+id/rbtn_other"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textSize="15dp"
+                   android:textColor="@color/white"
+                   android:text="Other"
+               />
+           </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_addHospital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/search_input_style"
+                android:text="Add Doctor"/>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

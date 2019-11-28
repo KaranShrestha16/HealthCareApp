@@ -98,10 +98,8 @@
                     android:hint="Search "
                     android:imeOptions="actionSearch"
                     android:maxLines="1"
-
                     android:singleLine="true">
-
-                    <requestFocus />
+                    />
 
                 </EditText>
 
