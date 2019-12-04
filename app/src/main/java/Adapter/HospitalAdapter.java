@@ -2,8 +2,11 @@ package Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +17,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import API.Url;
 import Model.HospitalModel;
 import www.myandroidcode.mydoctor.Hospital_Details;
 import www.myandroidcode.mydoctor.R;
@@ -42,17 +49,28 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final HospitalViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HospitalViewHolder holder, final int position) {
         holder.linearLayout.setAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_transition_animation));
-        holder.tvName.setText(hospitalDataFilter.get(position).getName());
-        holder.tvContact.setText(hospitalDataFilter.get(position).getContatct());
-        holder.tvAddress.setText(hospitalDataFilter.get(position).getAddress());
-//        holder.imgView.setText(hospitalData.get(position).getAddress());
+//        final HospitalModel hospitalModelss= hospitalDataFilter.get(position);
+        String imgpath = Url.BASE_URL + hospitalDataFilter.get(position).getIMAGE();
+        StrictMode();
+        try{
+            URL url = new URL(imgpath);
+            holder.imgView.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        holder.tvName.setText(hospitalDataFilter.get(position).getNAME());
+        holder.tvContact.setText(hospitalDataFilter.get(position).getCONTACT());
+        holder.tvAddress.setText(hospitalDataFilter.get(position).getADDRESS());
+//
         holder.tv_readmore_hospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(context, Hospital_Details.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("hospital_id",hospitalDataFilter.get(position).getHOSPITAL_ID());
                 context.startActivity(intent);
             }
         });
@@ -75,7 +93,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
                 }else{
                     List<HospitalModel> listFiltered = new ArrayList<>();
                     for(HospitalModel row :hospitalData){
-                        if(row.getName().toLowerCase().contains(Key.toLowerCase())){
+                        if(row.getNAME().toLowerCase().contains(Key.toLowerCase())){
                             listFiltered.add(row);
                         }
                     } hospitalDataFilter=listFiltered;
@@ -94,6 +112,12 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
             }
         };
     }
+    private void StrictMode() {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+    }
+
 
     public class HospitalViewHolder extends RecyclerView.ViewHolder{
         private TextView tvName,tvContact,tvAddress,tv_readmore_hospital;

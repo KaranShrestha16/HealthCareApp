@@ -22,8 +22,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import API.HospitalAPI;
+import API.Url;
 import Adapter.HospitalAdapter;
 import Model.HospitalModel;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class Hospitals extends AppCompatActivity  {
@@ -37,67 +42,59 @@ public class Hospitals extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospitals);
-
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        setContentView(R.layout.activity_hospitals);
-//        getSupportActionBar().hide();
-
+        recyclerView= findViewById(R.id.hospitalRecycleView);
         setToolbar();
-       recyclerView= findViewById(R.id.hospitalRecycleView);
-       hospitalData= new ArrayList<>();
+        LoadHospiyalData();
+    }
 
-       hospitalData.add(new HospitalModel(1,"Bir Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(2,"Grand International Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(3,"Om International Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(4,"Meridian Health Care Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(5,"Dirghayu Guru Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(6,"Metro Kathmandu Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(7,"Kantipur Dental Collge Teaching  Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(8,"Himal Dental Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(9,"Kathmandu Model Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(10,"B & B Hospital ","9812345678","New Road, Kathmandu, Nepal"));
-       hospitalData.add(new HospitalModel(11,"Civil Service Hospital ","9812345678","New Road, Kathmandu, Nepal"));
+    public void LoadHospiyalData() {
 
-       hospitalAdapter= new HospitalAdapter(this,hospitalData);
-       recyclerView.setAdapter(hospitalAdapter);
-       recyclerView.setLayoutManager( new LinearLayoutManager(this));
-
-
-        searchButton = findViewById(R.id.hospitalSearchButton);
-        searchButton.addTextChangedListener(new TextWatcher() {
+        final HospitalAPI hospitalAPI= Url.getInstance().create(HospitalAPI.class);
+        Call<List<HospitalModel>> hospitalData = hospitalAPI.getAll(Url.accessToken);
+        hospitalData.enqueue(new Callback<List<HospitalModel>>() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onResponse(Call<List<HospitalModel>> call, Response<List<HospitalModel>> response) {
+               if (!response.isSuccessful()){
+                   Toast.makeText(Hospitals.this, "Hospital Datat Cannot load on recyclearview: "+response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+               }else {
+                   List<HospitalModel> hospitalModelList= response.body();
+                   hospitalAdapter= new HospitalAdapter(Hospitals.this,hospitalModelList);
+                   recyclerView.setAdapter(hospitalAdapter);
+                   recyclerView.setLayoutManager( new LinearLayoutManager(Hospitals.this));
+                   searchButton = findViewById(R.id.hospitalSearchButton);
+                    searchButton.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            hospitalAdapter.getFilter().filter(charSequence);
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+
+
+
+               }
 
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                hospitalAdapter.getFilter().filter(charSequence);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+            public void onFailure(Call<List<HospitalModel>> call, Throwable t) {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
+
+
 
     private void setToolbar() {
         toolbarHospital= findViewById(R.id.toolbarHospital);
@@ -122,6 +119,8 @@ public class Hospitals extends AppCompatActivity  {
         });
 
     }
+
+
 
 
 }

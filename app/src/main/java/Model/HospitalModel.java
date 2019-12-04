@@ -1,45 +1,78 @@
 package Model;
 
 public class HospitalModel {
-    private int id;
-   private String name,contatct, address;
+    private int HOSPITAL_ID;
+   private String NAME,CONTACT, ADDRESS,IMAGE,WEBSITE,GENERAL,ICU,EMERGENCY;
 
-    public HospitalModel(int id, String name, String contatct, String address) {
-        this.id = id;
-        this.name = name;
-        this.contatct = contatct;
-        this.address = address;
+    public int getHOSPITAL_ID() {
+        return HOSPITAL_ID;
     }
 
-    public int getId() {
-        return id;
+    public void setHOSPITAL_ID(int HOSPITAL_ID) {
+        this.HOSPITAL_ID = HOSPITAL_ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getNAME() {
+        return NAME;
     }
 
-    public String getName() {
-        return name;
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCONTACT() {
+        return CONTACT;
     }
 
-    public String getContatct() {
-        return contatct;
+    public void setCONTACT(String CONTACT) {
+        this.CONTACT = CONTACT;
     }
 
-    public void setContatct(String contatct) {
-        this.contatct = contatct;
+    public String getADDRESS() {
+        return ADDRESS;
     }
 
-    public String getAddress() {
-        return address;
+    public void setADDRESS(String ADDRESS) {
+        this.ADDRESS = ADDRESS;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getIMAGE() {
+        return IMAGE;
+    }
+
+    public void setIMAGE(String IMAGE) {
+        this.IMAGE = IMAGE;
+    }
+
+    public String getWEBSITE() {
+        return WEBSITE;
+    }
+
+    public void setWEBSITE(String WEBSITE) {
+        this.WEBSITE = WEBSITE;
+    }
+
+    public String getGENERAL() {
+        return GENERAL;
+    }
+
+    public void setGENERAL(String GENERAL) {
+        this.GENERAL = GENERAL;
+    }
+
+    public String getICU() {
+        return ICU;
+    }
+
+    public void setICU(String ICU) {
+        this.ICU = ICU;
+    }
+
+    public String getEMERGENCY() {
+        return EMERGENCY;
+    }
+
+    public void setEMERGENCY(String EMERGENCY) {
+        this.EMERGENCY = EMERGENCY;
     }
 }

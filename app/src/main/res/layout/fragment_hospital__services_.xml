@@ -891,10 +891,10 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="35dp"
+                                android:layout_width="32dp"
                                 android:layout_height="35dp"
                                 android:layout_marginTop="25dp"
-                                android:src="@drawable/ic_pathology"/>
+                                android:src="@drawable/ic_pathology" />
 
                             <TextView
                                 android:layout_width="wrap_content"

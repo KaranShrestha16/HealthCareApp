@@ -8,13 +8,14 @@
     tools:context=".Hospital_Details">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarHospital"
+        android:id="@+id/toolbarHospital_details"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/gradient"
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
         <TextView
+            android:id="@+id/tv_toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -23,7 +24,7 @@
             android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/hospitalBack"
+            android:id="@+id/hospital_details_Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back_24dp" />
@@ -31,7 +32,7 @@
 
 
         <ImageView
-            android:id="@+id/hospitalRefresh"
+            android:id="@+id/hospital_details_Refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -47,10 +48,50 @@
 
     </android.support.v7.widget.Toolbar>
     <RelativeLayout
+        android:id="@+id/RL_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="220dp"
         android:background="@drawable/bir_hospital"
         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:background="#80000000">
+
+
+            <TextView
+                android:id="@+id/tv_hospitalName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Civil Hospital "
+                android:textSize="15dp"
+                android:textAllCaps="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/tv_hospitalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address: Civil Hospital "
+                android:textSize="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/tv_hospitalWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Web Site: "
+                android:textSize="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/white"/>        </LinearLayout>
+
+
 
     </RelativeLayout>
 
@@ -72,30 +113,35 @@
         >
 
         <Button
+            android:id="@+id/btn_generalBed"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="150 General"
+            android:text="150 \n General"
             android:textSize="18dp"
             android:paddingLeft="10dp"
             android:drawableLeft="@drawable/ic_bed"
             android:background="@color/white"
             />
         <Button
+            android:id="@+id/btn_ICUBed"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="17 ICU"
+            android:text="17 \n ICU"
             android:textSize="18dp"
+            android:drawableLeft="@drawable/ic_bed"
             android:singleLine="false"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:background="@color/white"
             />
         <Button
+            android:id="@+id/btn_emergencyBed"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_bed"
             android:text="12 Emergency"
             android:textSize="18dp"
             android:background="@color/white"

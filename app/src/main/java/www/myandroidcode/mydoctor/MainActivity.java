@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,16 +16,61 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-private FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_bim,fl_bloodbank
+import API.PatientAPI;
+import API.Url;
+import Adapter.LoginFragmentAdapter;
+import Model.PatientModel;
+import Model.ResponseFromAPI;
+import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private TextView nav_patientName,nav_patientEmail;
+    private CircleImageView nav_patientImage;
+    private FrameLayout fl_clinic,fl_doctor,fl_hospital,fl_pharmacy, fl_medicineTracker,fl_bim,fl_bloodbank
         ,fl_ambulance,fl_funeralVehicle,fl_feedback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        nav_patientEmail=findViewById(R.id.nav_patientEmail);
+        nav_patientImage=findViewById(R.id.nav_patientImage);
+        nav_patientName=findViewById(R.id.nav_patientName);
+
+
+
+
+//        PatientAPI patientAPI= Url.getInstance().create(PatientAPI.class);
+//        Call<PatientModel> patientModelCall= patientAPI.getUserById(Url.id);
+//        patientModelCall.enqueue(new Callback<PatientModel>() {
+//            @Override
+//            public void onResponse(Call<PatientModel> call, Response<PatientModel> response) {
+//                if(!response.isSuccessful()){
+//                    Toast.makeText(MainActivity.this, "Patient_id Could not find", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }else {
+//
+//                    Log.d("Email", response.body().getName());
+//                    nav_patientEmail.setText(response.body().getEmail());
+//                    nav_patientName.setText(response.body().getName());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PatientModel> call, Throwable t) {
+//                Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
