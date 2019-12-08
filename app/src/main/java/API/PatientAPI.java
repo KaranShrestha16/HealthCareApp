@@ -1,5 +1,10 @@
 package API;
 
+import java.util.List;
+
+import Model.AppointmentHistoryModel;
+import Model.AppointmentModel;
+import Model.Doctor_HospitalModel;
 import Model.PatientModel;
 import Model.ResponseFromAPI;
 import okhttp3.MultipartBody;
@@ -26,12 +31,19 @@ public interface PatientAPI {
     @POST("mobilehealthcare/v1/patient/signup")
     Call<ResponseFromAPI> patientRegistration(@Body PatientModel patient);
 
+    @POST("mobilehealthcare/v1/patient/getappointment")
+    Call<ResponseFromAPI> getDoctorAppointment(@Header("Authorization") String accessToken,@Body AppointmentModel  appointmentModel);
+
     @GET("mobilehealthcare/v1/patient/{id}")
     Call<PatientModel> getPatientById( @Header("Authorization") String accessToken,@Path("id") int id);
 
     @Multipart
     @POST("/api/v1/uploadResume")
     Call<ResponseFromAPI> uploadResume(@Part MultipartBody.Part myResume);
+
+    @GET("mobilehealthcare/v1/patient/getappointmenthistory/{id}")
+    Call<List<AppointmentHistoryModel>> getAppointmentHistory(@Header("Authorization") String accessToken,@Path("id") int id );
+
 
 
 

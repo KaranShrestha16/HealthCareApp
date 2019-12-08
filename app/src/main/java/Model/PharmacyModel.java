@@ -1,55 +1,46 @@
 package Model;
 
 public class PharmacyModel {
-    private int pharmacy_id;
-    private String name, address, contact, webpage;
+    private int PHARMACY_ID;
+    private String NAME, ADDRESS, CONTACT, WEBSITE;
 
-    public PharmacyModel(String name, String address, String contact, String webpage) {
-        this.name = name;
-        this.address = address;
-        this.contact = contact;
-        this.webpage = webpage;
+    public int getPHARMACY_ID() {
+        return PHARMACY_ID;
     }
 
-    public int getPharmacy_id() {
-        return pharmacy_id;
+    public void setPHARMACY_ID(int PHARMACY_ID) {
+        this.PHARMACY_ID = PHARMACY_ID;
     }
 
-    public void setPharmacy_id(int pharmacy_id) {
-        this.pharmacy_id = pharmacy_id;
+    public String getNAME() {
+        return NAME;
     }
 
-    public String getName() {
-        return name;
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getADDRESS() {
+        return ADDRESS;
     }
 
-    public String getAddress() {
-        return address;
+    public void setADDRESS(String ADDRESS) {
+        this.ADDRESS = ADDRESS;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getCONTACT() {
+        return CONTACT;
     }
 
-    public String getContact() {
-        return contact;
+    public void setCONTACT(String CONTACT) {
+        this.CONTACT = CONTACT;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public String getWEBSITE() {
+        return WEBSITE;
     }
 
-    public String getWebpage() {
-        return webpage;
+    public void setWEBSITE(String WEBSITE) {
+        this.WEBSITE = WEBSITE;
     }
-
-    public void setWebpage(String webpage) {
-        this.webpage = webpage;
-    }
-
-
 }

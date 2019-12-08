@@ -54,14 +54,13 @@
 
 
         <EditText
-            android:id="@+id/hospitalSearchButton"
+            android:id="@+id/admin_hospitalSearchButton"
             android:background="@drawable/search_input_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-
             android:drawableLeft="@drawable/icon_search"
             android:hint="Search"
             android:textAlignment="center"
@@ -70,7 +69,7 @@
             android:id="@+id/admin_hospitalRecycleView"
             android:layout_width="match_parent"
             android:layout_marginTop="40dp"
-            android:layout_below="@id/hospitalSearchButton"
+            android:layout_below="@id/admin_hospitalSearchButton"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
 

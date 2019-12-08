@@ -1,54 +1,39 @@
 package Model;
 
 public class BloodBankModel {
-    private int bloodBank_id;
-    private String name, address, contact, webpage;
+    private int BLOOD_BANK_ID;
+    private String NAME, ADDRESS, CONTACT;
 
-    public BloodBankModel(String name, String address, String contact, String webpage) {
-        this.name = name;
-        this.address = address;
-        this.contact = contact;
-        this.webpage = webpage;
+    public int getBLOOD_BANK_ID() {
+        return BLOOD_BANK_ID;
     }
 
-    public int getBloodBank_id() {
-        return bloodBank_id;
+    public void setBLOOD_BANK_ID(int BLOOD_BANK_ID) {
+        this.BLOOD_BANK_ID = BLOOD_BANK_ID;
     }
 
-    public void setBloodBank_id(int bloodBank_id) {
-        this.bloodBank_id = bloodBank_id;
+    public String getNAME() {
+        return NAME;
     }
 
-    public String getName() {
-        return name;
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getADDRESS() {
+        return ADDRESS;
     }
 
-    public String getAddress() {
-        return address;
+    public void setADDRESS(String ADDRESS) {
+        this.ADDRESS = ADDRESS;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getCONTACT() {
+        return CONTACT;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    public String getWebpage() {
-        return webpage;
-    }
-
-    public void setWebpage(String webpage) {
-        this.webpage = webpage;
+    public void setCONTACT(String CONTACT) {
+        this.CONTACT = CONTACT;
     }
 }
 

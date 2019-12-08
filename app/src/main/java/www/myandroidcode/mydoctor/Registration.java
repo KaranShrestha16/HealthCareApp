@@ -76,15 +76,15 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
 
                   PatientAPI patientAPI= Url.getInstance().create(API.PatientAPI.class);
                   PatientModel patientModel= new PatientModel();
-                  patientModel.setName(name);
-                  patientModel.setAddress(txt_address.getEditText().getText().toString().trim());
-                  patientModel.setAddress(txt_address.getEditText().getText().toString().trim());
-                  patientModel.setGender(gender);
-                  patientModel.setContact(txt_contact.getEditText().getText().toString().trim());
-                  patientModel.setBirthdate(txt_birthdate.getEditText().getText().toString().trim());
-                  patientModel.setEmail(txt_email.getEditText().getText().toString().trim());
-                  patientModel.setPassword(txt_password.getEditText().getText().toString().trim());
-                  patientModel.setImage(" ");
+                  patientModel.setNAME(name);
+                  patientModel.setADDRESS(txt_address.getEditText().getText().toString().trim());
+                  patientModel.setGENDER(gender);
+                  patientModel.setCONTACT(txt_contact.getEditText().getText().toString().trim());
+                  patientModel.setBIRTHDATE(txt_birthdate.getEditText().getText().toString().trim());
+                  patientModel.setEMAIL(txt_email.getEditText().getText().toString().trim());
+                  patientModel.setPASSWORD(txt_password.getEditText().getText().toString().trim());
+                  patientModel.setIMAGE(" ");
+                  patientModel.setBLOOD_GROUP("null");
 
 
                   final Call<ResponseFromAPI> registerPatient = patientAPI.patientRegistration(patientModel);
@@ -138,7 +138,7 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
     public void DatePicker(){
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
-        int month = 1+calendar.get(Calendar.MONTH);
+        int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,this,year,month,day);
         datePickerDialog.show();
@@ -147,7 +147,7 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        txtBirthDate.setText(year+"/"+month+"/"+dayOfMonth);
+        txtBirthDate.setText(dayOfMonth+"/"+(month+1)+"/"+year);
     }
 
     public Boolean Validation(){

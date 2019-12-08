@@ -42,10 +42,9 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.Bloo
     @Override
     public void onBindViewHolder(@NonNull BloodBankHolder holder, int position) {
         holder.bloodBank_layout.setAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_transition_animation));
-        holder.tvName.setText(bloodBankDataFilter.get(position).getName());
-        holder.tvAddress.setText(bloodBankDataFilter.get(position).getAddress());
-        holder.tvContact.setText(bloodBankDataFilter.get(position).getContact());
-        holder.tvWebsite.setText(bloodBankDataFilter.get(position).getWebpage());
+        holder.tvName.setText(bloodBankDataFilter.get(position).getNAME());
+        holder.tvAddress.setText(bloodBankDataFilter.get(position).getADDRESS());
+        holder.tvContact.setText(bloodBankDataFilter.get(position).getCONTACT());
     }
 
     @Override
@@ -64,7 +63,7 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.Bloo
                 }else{
                     List<BloodBankModel> listFiltered = new ArrayList<>();
                     for(BloodBankModel row :bloodBankDataFilter){
-                        if(row.getName().toLowerCase().contains(Key.toLowerCase())){
+                        if(row.getNAME().toLowerCase().contains(Key.toLowerCase())){
                             listFiltered.add(row);
                         }
                     } bloodBankDataFilter=listFiltered;
@@ -94,7 +93,6 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.Bloo
             tvName=itemView.findViewById(R.id.tv_bloodBank_name);
             tvAddress= itemView.findViewById(R.id.tv_bloodBank_address);
             tvContact= itemView.findViewById(R.id.tv_bloodBank_contact);
-            tvWebsite= itemView.findViewById(R.id.tv_bloodBank_website);
             bloodBank_image=itemView.findViewById(R.id.tv_bloodBank_image);
 
         }

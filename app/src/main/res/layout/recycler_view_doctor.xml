@@ -22,9 +22,11 @@
     </FrameLayout>
 
     <LinearLayout
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginLeft="10dp"
         android:layout_gravity="center">
         <TextView
             android:id="@+id/tv_doctorName"
@@ -38,11 +40,32 @@
             android:id="@+id/tv_doctor_speciality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hey, How are you ?"
+            android:text="Cardiology"
             android:textColor="#c6c6c6"
             android:textSize="16sp"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="center"/>
+            android:layout_marginTop="5dp" />
+        <TextView
+            android:id="@+id/tv_doctor_qualification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qunification: MD "
+            android:textColor="#c6c6c6"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp" />
+
+
+        <TextView
+            android:id="@+id/tv_TakeAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Take Appointment"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="10dp"
+            />
+
 
 
     </LinearLayout>

@@ -11,12 +11,18 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import API.BloodBankAPI;
+import API.Url;
 import Adapter.BloodBankAdapter;
 import Model.BloodBankModel;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class BloodBank extends AppCompatActivity {
@@ -24,7 +30,6 @@ public class BloodBank extends AppCompatActivity {
     private ImageView back;
     private RecyclerView recyclerView;
     private BloodBankAdapter bloodBankAdapter;
-    private List<BloodBankModel> bloodBankDate;
     private EditText txtSearch;
 
     @Override
@@ -33,42 +38,49 @@ public class BloodBank extends AppCompatActivity {
         setContentView(R.layout.activity_blood_bank);
         setToolbar();
         recyclerView= findViewById(R.id.bloodBankRecycleView);
-        bloodBankDate= new ArrayList<>();
-        bloodBankDate.add(new BloodBankModel("Annapurna Pharmacy P. Ltd. ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("ATM Pharmacy ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("RAJDHANI MEDICAL HALL","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("Get Well Soon Nepal Pvt Ltd","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("G.M.P. Pharma","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("ROYALTRADERS","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("OK Pharma - Online Pharmacy Pokhara","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("Rachana Orhto-Neuro Rehabilitation Center","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("Hemant Medicine Distributors","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("Annapurna Pharmacy P. Ltd. ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("ATM Pharmacy ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        bloodBankDate.add(new BloodBankModel("RAJDHANI MEDICAL HALL","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
 
-        bloodBankAdapter= new BloodBankAdapter(this, bloodBankDate);
-        recyclerView.setAdapter(bloodBankAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        txtSearch = findViewById(R.id.txt_search_bloodBnak);
-        txtSearch.addTextChangedListener(new TextWatcher() {
+        BloodBankAPI bloodBankAPI = Url.getInstance().create(BloodBankAPI.class);
+        Call<List<BloodBankModel>> bloodbankdate= bloodBankAPI.getAll(Url.accessToken);
+        bloodbankdate.enqueue(new Callback<List<BloodBankModel>>() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onResponse(Call<List<BloodBankModel>> call, Response<List<BloodBankModel>> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(BloodBank.this, "Error: "+response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }else{
+                    List<BloodBankModel> bloodBankModelList= response.body();
+                    bloodBankAdapter= new BloodBankAdapter(BloodBank.this, bloodBankModelList);
+                    recyclerView.setAdapter(bloodBankAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(BloodBank.this));
+                    txtSearch = findViewById(R.id.txt_search_bloodBnak);
+                    txtSearch.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            bloodBankAdapter.getFilter().filter(charSequence);
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+
+                }
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-             bloodBankAdapter.getFilter().filter(charSequence);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void onFailure(Call<List<BloodBankModel>> call, Throwable t) {
+                Toast.makeText(BloodBank.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
 
 
 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/report_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/border"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <ImageView
+            android:id="@+id/image_report"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/bir_hospital" />
+    <TextView
+        android:id="@+id/tv_reportName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Report Name"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/tv_reportDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Report Date"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Report Description"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_reportDescription"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#c6c6c6"
+        android:layout_marginBottom="20dp"
+        android:textSize="16sp" />
+
+
+
+
+
+</LinearLayout>

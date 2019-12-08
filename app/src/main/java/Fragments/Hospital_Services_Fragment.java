@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import www.myandroidcode.mydoctor.DoctorWithDepartment;
 import www.myandroidcode.mydoctor.R;
 
 public class Hospital_Services_Fragment extends Fragment {
@@ -25,8 +27,10 @@ public class Hospital_Services_Fragment extends Fragment {
         fl_cardiology.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getActivity(),"Cardiology Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(getContext(), DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Cardiology");
+                startActivity(intent);
             }
         });
 

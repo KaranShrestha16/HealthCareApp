@@ -12,10 +12,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -36,6 +38,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Hospital_Details extends AppCompatActivity {
+    FrameLayout fl_cardiology, fl_dential, fl_dermatology, fl_endocrine,fl_ent,fl_gastrology,fl_physican,fl_gynaecology
+            ,fl_nepthrology,fl_neurology,fl_oncology,fl_opthalmology,fl_orthopedic,fl_paediatry,fl_pathology,fl_psychiatry,fl_pulmonology,
+            fl_radiology, fl_surgeon,fl_urology;
     private Toolbar toolbarHospital;
     private ImageView back,refesh,home;
     private ViewPager hospitalViewPager;
@@ -43,8 +48,8 @@ public class Hospital_Details extends AppCompatActivity {
     private Button icu,general,emergency;
     private TextView tv_toolbarTitle,tv_hospitalName,tv_hospitalAddress,tv_hospitalWebsite;
     private RelativeLayout RL_image;
-    private String toolbarTitle;
     private int hospital_id;
+    private String toolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +58,9 @@ public class Hospital_Details extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            hospital_id= bundle.getInt("hospital_id");
+            hospital_id= bundle.getInt("hospitalid");
         }
-        setToolbar();
         tv_toolbarTitle=findViewById(R.id.tv_toolbarTitle);
-        hospitalViewPager = findViewById(R.id.hospitalViewPager);
-        hospitalTablayout=findViewById(R.id.hospitalTablayout);
         tv_hospitalName=findViewById(R.id.tv_hospitalName);
         tv_hospitalAddress=findViewById(R.id.tv_hospitalAddress);
         tv_hospitalWebsite=findViewById(R.id.tv_hospitalWebsite);
@@ -67,17 +69,17 @@ public class Hospital_Details extends AppCompatActivity {
         icu=findViewById(R.id.btn_ICUBed);
         emergency=findViewById(R.id.btn_emergencyBed);
 
+
+        setToolbar();
         HospitalAPI hospitalAPI= Url.getInstance().create(HospitalAPI.class);
         retrofit2.Call<HospitalModel> hospitalModelCall= hospitalAPI.getHospitalById(Url.accessToken,hospital_id);
         hospitalModelCall.enqueue(new Callback<HospitalModel>() {
-
             @Override
             public void onResponse(Call<HospitalModel> call, Response<HospitalModel> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(Hospital_Details.this, "Hospital_id Could not find", Toast.LENGTH_SHORT).show();
                     return;
                 }else {
-
 
                     String imgpath = Url.BASE_URL + response.body().getIMAGE();
                     StrictMode();
@@ -89,13 +91,16 @@ public class Hospital_Details extends AppCompatActivity {
                     }catch (IOException e) {
                         e.printStackTrace();
                     }
-
-                    tv_toolbarTitle.setText(response.body().getNAME());
+                    tv_toolbarTitle.setText(response.body().getHOSPITAL_NAME());
+                    toolbarTitle=response.body().getHOSPITAL_NAME();
                     general.setText(response.body().getGENERAL()+" \n GENERAL");
                     icu.setText(response.body().getICU()+" \n ICU");
-                    tv_hospitalName.setText(response.body().getNAME());
+                    emergency.setText(response.body().getEMERGENCY()+" \n EMERGENCY");
+                    tv_hospitalName.setText(response.body().getHOSPITAL_NAME());
                     tv_hospitalAddress.setText( "Address: "+response.body().getADDRESS());
-                    tv_hospitalWebsite.setText( "Website: "+response.body().getWEBSITE());
+                    tv_hospitalWebsite.setText(response.body().getWEBSITE());
+
+
                 }
             }
 
@@ -106,6 +111,7 @@ public class Hospital_Details extends AppCompatActivity {
         });
 
 
+        ClickFunction();
 //        tv_hospitalWebsite.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -116,16 +122,299 @@ public class Hospital_Details extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-
-
-
-        HospitalFragmentAdapter adapter= new HospitalFragmentAdapter(getSupportFragmentManager());
-        adapter.addHospitalFragment(new Hospital_Services_Fragment(),"Hospital Services");
-        adapter.addHospitalFragment(new All_Doctor_List(),"All Doctors");
-        hospitalViewPager.setAdapter(adapter);
-        hospitalTablayout.setupWithViewPager(hospitalViewPager);
     }
 
+    public void ClickFunction()
+    {
+
+        Log.d("toolbarTitle2", toolbarTitle+"");
+        fl_cardiology = findViewById(R.id.fl_cardiology);
+        fl_cardiology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Cadiology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+        fl_dential = findViewById(R.id.fl_dentist);
+        fl_dential.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Dentist");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+
+                startActivity(intent);
+            }
+        });
+
+        fl_dermatology = findViewById(R.id.fl_dermatology);
+        fl_dermatology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Dermatology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_endocrine =findViewById(R.id.fl_endocrine);
+        fl_endocrine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Endocrine");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_ent = findViewById(R.id.fl_ent);
+        fl_ent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","ENT");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+
+                startActivity(intent);
+            }
+        });
+
+        fl_gastrology = findViewById(R.id.fl_gastrology);
+        fl_gastrology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Gastrology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_physican =  findViewById(R.id.fl_physician);
+        fl_physican.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","General Physician");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_gynaecology =  findViewById(R.id.fl_gynaecology);
+        fl_gynaecology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Gynaecology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+
+        fl_nepthrology=findViewById(R.id.fl_nephrology);
+        fl_nepthrology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Nephrology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_neurology= findViewById(R.id.fl_neurology);
+        fl_neurology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Neurology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+
+        fl_oncology= findViewById(R.id.fl_oncology);
+        fl_oncology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Oncology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_opthalmology= findViewById(R.id.fl_opthalmology);
+        fl_opthalmology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Opthalmology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_orthopedic= findViewById(R.id.fl_orthopedic);
+        fl_orthopedic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Orthopedic");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+
+        fl_paediatry= findViewById(R.id.fl_paediatry);
+        fl_paediatry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Paediatry");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_pathology= findViewById(R.id.fl_pathology);
+        fl_pathology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Pathology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_psychiatry= findViewById(R.id.fl_psychiatry);
+        fl_psychiatry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Psychiatry");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+
+        fl_pulmonology= findViewById(R.id.fl_pulmonology);
+        fl_pulmonology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Endocrine");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+
+        fl_radiology= findViewById(R.id.fl_radiology);
+        fl_radiology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Endocrine");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_surgeon=  findViewById(R.id.fl_radiology);
+        fl_surgeon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Surgeon");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+        fl_urology= findViewById(R.id.fl_urology);
+        fl_urology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Hospital_Details.this, DoctorWithDepartment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("department","Urology");
+                intent.putExtra("hospital_id",hospital_id);
+                intent.putExtra("toolbarTitle_for",toolbarTitle);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+    }
 
 
     private void setToolbar() {

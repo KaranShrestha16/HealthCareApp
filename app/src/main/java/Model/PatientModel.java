@@ -1,79 +1,86 @@
 package Model;
 
 public class PatientModel {
-    private int patient_id;
-    private String name, email, password, contact, address, image, birthdate, gender;
+    private int PATIENT_ID;
+    private String NAME, EMAIL, PASSWORD, CONTACT, ADDRESS, IMAGE, BIRTHDATE, GENDER,BLOOD_GROUP;
 
-
-    public int getPatient_id() {
-        return patient_id;
+    public int getPATIENT_ID() {
+        return PATIENT_ID;
     }
 
-    public void setPatient_id(int patient_id) {
-        this.patient_id = patient_id;
+    public void setPATIENT_ID(int PATIENT_ID) {
+        this.PATIENT_ID = PATIENT_ID;
     }
 
-    public String getName() {
-        return name;
+    public String getNAME() {
+        return NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEMAIL() {
+        return EMAIL;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEMAIL(String EMAIL) {
+        this.EMAIL = EMAIL;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPASSWORD() {
+        return PASSWORD;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPASSWORD(String PASSWORD) {
+        this.PASSWORD = PASSWORD;
     }
 
-    public String getContact() {
-        return contact;
+    public String getCONTACT() {
+        return CONTACT;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setCONTACT(String CONTACT) {
+        this.CONTACT = CONTACT;
     }
 
-    public String getAddress() {
-        return address;
+    public String getADDRESS() {
+        return ADDRESS;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setADDRESS(String ADDRESS) {
+        this.ADDRESS = ADDRESS;
     }
 
-    public String getImage() {
-        return image;
+    public String getIMAGE() {
+        return IMAGE;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setIMAGE(String IMAGE) {
+        this.IMAGE = IMAGE;
     }
 
-    public String getBirthdate() {
-        return birthdate;
+    public String getBIRTHDATE() {
+        return BIRTHDATE;
     }
 
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+    public void setBIRTHDATE(String BIRTHDATE) {
+        this.BIRTHDATE = BIRTHDATE;
     }
 
-    public String getGender() {
-        return gender;
+    public String getGENDER() {
+        return GENDER;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGENDER(String GENDER) {
+        this.GENDER = GENDER;
+    }
+
+    public String getBLOOD_GROUP() {
+        return BLOOD_GROUP;
+    }
+
+    public void setBLOOD_GROUP(String BLOOD_GROUP) {
+        this.BLOOD_GROUP = BLOOD_GROUP;
     }
 }

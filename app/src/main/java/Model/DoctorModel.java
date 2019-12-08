@@ -1,35 +1,63 @@
 package Model;
 
 public class DoctorModel {
-    private  int id;
-    private String name, spciality;
+    private  int DOCTOR_ID;
+    private String DOCTOR_NAME,ADDRESS,CONTACT,GENDER,QUALIFICATION, DOCTOR_IMAGE ;
 
-    public DoctorModel(String name, String spciality) {
-        this.name = name;
-        this.spciality = spciality;
+
+    public int getDOCTOR_ID() {
+        return DOCTOR_ID;
     }
 
-    public int getId() {
-        return id;
+    public void setDOCTOR_ID(int DOCTOR_ID) {
+        this.DOCTOR_ID = DOCTOR_ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getDOCTOR_NAME() {
+        return DOCTOR_NAME;
     }
 
-    public String getName() {
-        return name;
+    public void setDOCTOR_NAME(String DOCTOR_NAME) {
+        this.DOCTOR_NAME = DOCTOR_NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getADDRESS() {
+        return ADDRESS;
     }
 
-    public String getSpciality() {
-        return spciality;
+    public void setADDRESS(String ADDRESS) {
+        this.ADDRESS = ADDRESS;
     }
 
-    public void setSpciality(String spciality) {
-        this.spciality = spciality;
+    public String getCONTACT() {
+        return CONTACT;
+    }
+
+    public void setCONTACT(String CONTACT) {
+        this.CONTACT = CONTACT;
+    }
+
+    public String getGENDER() {
+        return GENDER;
+    }
+
+    public void setGENDER(String GENDER) {
+        this.GENDER = GENDER;
+    }
+
+    public String getQUALIFICATION() {
+        return QUALIFICATION;
+    }
+
+    public void setQUALIFICATION(String QUALIFICATION) {
+        this.QUALIFICATION = QUALIFICATION;
+    }
+
+    public String getDOCTOR_IMAGE() {
+        return DOCTOR_IMAGE;
+    }
+
+    public void setDOCTOR_IMAGE(String DOCTOR_IMAGE) {
+        this.DOCTOR_IMAGE = DOCTOR_IMAGE;
     }
 }

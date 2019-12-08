@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".AddReport">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_addReport"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/gradient"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Add Report"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/addReportBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_24dp" />
+
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/imageError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"/>
+
+            <ImageView
+                android:id="@+id/imageReport"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="45dp"
+                android:src="@drawable/ic_feedback" />
+
+            <Button
+                android:id="@+id/btn_uploadReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/white"
+                android:background="#E75E5C"
+                android:text="Upload Image"
+                />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/txtInpute_reportName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryDark"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_reportName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ReportName"
+                    app:errorTextAppearance="@drawable/gradient"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:paddingLeft="7.0dip"
+                    android:textSize="14sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/text_reportDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Report Date"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:textColor="@color/colorPrimaryDark"
+                android:inputType="text"
+                android:maxLength="50"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/tv_showDateReport"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:textColor="@color/colorPrimaryDark"
+                android:inputType="text"
+                android:maxLength="50"
+                android:textSize="14sp" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/txtInpute_reportDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryDark"
+                app:errorTextAppearance="@drawable/gradient"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_reportDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:hint="Report Description"
+                    android:imeOptions="actionNext"
+                    android:gravity="top"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:inputType="text|textMultiLine"
+                    android:paddingLeft="7.0dip"
+                    android:textSize="14sp" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btn_addReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/white"
+                android:background="@drawable/search_input_style1"
+                android:text="Add Report"/>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>

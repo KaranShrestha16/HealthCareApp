@@ -1,6 +1,7 @@
 package www.myandroidcode.mydoctor;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,16 +18,20 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import API.PharmacyAPI;
+import API.Url;
 import Adapter.PharmacyAdapter;
 import Model.HospitalModel;
 import Model.PharmacyModel;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Pharmacy extends AppCompatActivity {
     private Toolbar toolbarPharmacy;
     private ImageView back;
     private RecyclerView recyclerView;
     private PharmacyAdapter pharmacyAdapter;
-    private List<PharmacyModel> pharmacyDate;
     private EditText txtSearch;
 
     @Override
@@ -36,42 +41,48 @@ public class Pharmacy extends AppCompatActivity {
 
         setToolbar();
         recyclerView= findViewById(R.id.pharmacyRecycleView);
-        pharmacyDate= new ArrayList<>();
-        pharmacyDate.add(new PharmacyModel("Annapurna Pharmacy P. Ltd. ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("ATM Pharmacy ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("RAJDHANI MEDICAL HALL","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("Get Well Soon Nepal Pvt Ltd","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("G.M.P. Pharma","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("ROYALTRADERS","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("OK Pharma - Online Pharmacy Pokhara","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("Rachana Orhto-Neuro Rehabilitation Center","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("Hemant Medicine Distributors","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("Annapurna Pharmacy P. Ltd. ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("ATM Pharmacy ","Maitighar, Kathmandu","9851091662","annapurnapharmacy.com"));
-        pharmacyDate.add(new PharmacyModel("RAJDHANI MEDICAL HALL","Kalimati-4, Kathmandu, Nepal","9801165986, 9861665986 ","www.atmpharmacy.com"));
 
-        pharmacyAdapter= new PharmacyAdapter(this, pharmacyDate);
-        recyclerView.setAdapter(pharmacyAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        txtSearch = findViewById(R.id.txt_search_pharmacy);
-        txtSearch.addTextChangedListener(new TextWatcher() {
+        PharmacyAPI pharmacyAPI = Url.getInstance().create(PharmacyAPI.class);
+        Call<List<PharmacyModel>> pharmacyData= pharmacyAPI.getAll(Url.accessToken);
+        pharmacyData.enqueue(new Callback<List<PharmacyModel>>() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onResponse(Call<List<PharmacyModel>> call, Response<List<PharmacyModel>> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(Pharmacy.this, "Error: "+ response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    List<PharmacyModel> pharmacyModelList= response.body();
+                    pharmacyAdapter= new PharmacyAdapter(Pharmacy.this, pharmacyModelList);
+                    recyclerView.setAdapter(pharmacyAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(Pharmacy.this));
+                    txtSearch = findViewById(R.id.txt_search_pharmacy);
+                    txtSearch.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            pharmacyAdapter.getFilter().filter(charSequence);
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+
+
+                }
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                pharmacyAdapter.getFilter().filter(charSequence);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void onFailure(Call<List<PharmacyModel>> call, Throwable t) {
+                Toast.makeText(Pharmacy.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
 

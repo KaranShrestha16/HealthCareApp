@@ -11,6 +11,7 @@
             <!-- CONTENT LAYER -->
             <item android:bottom="2dp" >
                 <shape>
+
                     <solid android:color="#FFFFFF" />
                 </shape>
             </item>

@@ -61,16 +61,17 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
             e.printStackTrace();
         }
 
-        holder.tvName.setText(hospitalDataFilter.get(position).getNAME());
+        holder.tvName.setText(hospitalDataFilter.get(position).getHOSPITAL_NAME());
         holder.tvContact.setText(hospitalDataFilter.get(position).getCONTACT());
         holder.tvAddress.setText(hospitalDataFilter.get(position).getADDRESS());
-//
+
+
         holder.tv_readmore_hospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(context, Hospital_Details.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("hospital_id",hospitalDataFilter.get(position).getHOSPITAL_ID());
+                intent.putExtra("hospitalid",hospitalDataFilter.get(position).getHOSPITAL_ID());
                 context.startActivity(intent);
             }
         });
@@ -93,7 +94,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
                 }else{
                     List<HospitalModel> listFiltered = new ArrayList<>();
                     for(HospitalModel row :hospitalData){
-                        if(row.getNAME().toLowerCase().contains(Key.toLowerCase())){
+                        if(row.getHOSPITAL_NAME().toLowerCase().contains(Key.toLowerCase())){
                             listFiltered.add(row);
                         }
                     } hospitalDataFilter=listFiltered;

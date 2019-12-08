@@ -1,7 +1,9 @@
 package www.myandroidcode.mydoctor;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -18,6 +20,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URL;
 
 import API.PatientAPI;
 import API.Url;
@@ -38,38 +45,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        nav_patientEmail=findViewById(R.id.nav_patientEmail);
-        nav_patientImage=findViewById(R.id.nav_patientImage);
-        nav_patientName=findViewById(R.id.nav_patientName);
-
-
-
-
-//        PatientAPI patientAPI= Url.getInstance().create(PatientAPI.class);
-//        Call<PatientModel> patientModelCall= patientAPI.getUserById(Url.id);
-//        patientModelCall.enqueue(new Callback<PatientModel>() {
-//            @Override
-//            public void onResponse(Call<PatientModel> call, Response<PatientModel> response) {
-//                if(!response.isSuccessful()){
-//                    Toast.makeText(MainActivity.this, "Patient_id Could not find", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }else {
-//
-//                    Log.d("Email", response.body().getName());
-//                    nav_patientEmail.setText(response.body().getEmail());
-//                    nav_patientName.setText(response.body().getName());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<PatientModel> call, Throwable t) {
-//                Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-
-
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -152,8 +127,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fl_ambulance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"Ambulance Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Ambulance.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -189,14 +165,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View hView =  navigationView.getHeaderView(0);
+
+        nav_patientEmail= hView.findViewById(R.id.nav_patientEmail);
+        nav_patientImage= hView.findViewById(R.id.nav_patientImage);
+        nav_patientName= hView.findViewById(R.id.nav_patientName);
+
+        PatientAPI patientAPI= Url.getInstance().create(PatientAPI.class);
+        Call<PatientModel> patientModelCall= patientAPI.getPatientById(Url.accessToken,Url.id);
+        patientModelCall.enqueue(new Callback<PatientModel>() {
+            @Override
+            public void onResponse(Call<PatientModel> call, Response<PatientModel> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(MainActivity.this, "Patient_id Could not find", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    String imgpath = Url.BASE_URL + response.body().getIMAGE();
+                    StrictMode();
+                    try{
+                        URL url = new URL(imgpath);
+                        nav_patientImage.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
+                    }catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    nav_patientEmail.setText(response.body().getEMAIL());
+                    nav_patientName.setText(response.body().getNAME());
+
+                    Log.d("Email", response.body().getEMAIL()+"");
+                    Log.d("Name", response.body().getNAME()+"");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PatientModel> call, Throwable t) {
+                Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
     }
 
     @Override
@@ -235,11 +254,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_setting) {
             Toast.makeText(this, "Click Settings", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_about_us) {
-            Toast.makeText(this, "Click About Us", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, AboutUs.class);
+            startActivity(intent);
+            finish();
+        }else if (id == R.id.nav_logout) {
+            Url.accessToken="";
+            Url.id=0;
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    private void StrictMode() {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+    }
+
+
 }

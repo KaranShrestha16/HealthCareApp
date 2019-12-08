@@ -3,6 +3,7 @@ package Fragments;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -31,6 +32,7 @@ import www.myandroidcode.mydoctor.Registration;
 public class Fragment_PatientLogin extends Fragment {
 
     private FrameLayout fl_patientLogin;
+    private TextInputEditText text_email,text_password;
     private TextInputLayout txt_patientEmail,txt_patientPassword;
     private TextView tv_patientSignUp,tv_patientForget_password;
     private ImageView facebook;
@@ -44,9 +46,15 @@ public class Fragment_PatientLogin extends Fragment {
 
         fl_patientLogin = view.findViewById(R.id.fl_patientLogin);
         txt_patientEmail = view.findViewById(R.id.txt_patientEmail);
+        text_email = view.findViewById(R.id.text_email);
+        text_password = view.findViewById(R.id.text_password);
         txt_patientPassword = view.findViewById(R.id.txt_patientPassword);
         tv_patientSignUp = view.findViewById(R.id.tv_patientSignup);
         tv_patientForget_password = view.findViewById(R.id.tv_patientForgotPassword);
+
+
+        text_password.setText("Karan@123");
+        text_email.setText("karan@gmail.com");
 
 
 

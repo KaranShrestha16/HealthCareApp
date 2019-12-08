@@ -41,10 +41,10 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Pharma
     @Override
     public void onBindViewHolder(@NonNull PharmacyViewHolder holder, int position) {
         holder.pharmacy_layout.setAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_transition_animation));
-        holder.tvName.setText(pharmacyDataFilter.get(position).getName());
-        holder.tvAddress.setText(pharmacyDataFilter.get(position).getAddress());
-        holder.tvContact.setText(pharmacyDataFilter.get(position).getContact());
-        holder.tvWebsite.setText(pharmacyDataFilter.get(position).getWebpage());
+        holder.tvName.setText("   "+pharmacyDataFilter.get(position).getNAME());
+        holder.tvAddress.setText("   "+pharmacyDataFilter.get(position).getADDRESS());
+        holder.tvContact.setText("   "+pharmacyDataFilter.get(position).getCONTACT());
+        holder.tvWebsite.setText("   "+pharmacyDataFilter.get(position).getWEBSITE());
 
     }
 
@@ -64,7 +64,7 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Pharma
                 }else{
                     List<PharmacyModel> listFiltered = new ArrayList<>();
                     for(PharmacyModel row :pharmacyData){
-                        if(row.getName().toLowerCase().contains(Key.toLowerCase())){
+                        if(row.getNAME().toLowerCase().contains(Key.toLowerCase())){
                             listFiltered.add(row);
                         }
                     } pharmacyDataFilter=listFiltered;

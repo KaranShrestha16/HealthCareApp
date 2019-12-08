@@ -36,7 +36,6 @@ public class Hospitals extends AppCompatActivity  {
     private ImageView back,refesh;
     private  RecyclerView recyclerView;
     private HospitalAdapter   hospitalAdapter;
-    private List<HospitalModel> hospitalData;
     private EditText searchButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

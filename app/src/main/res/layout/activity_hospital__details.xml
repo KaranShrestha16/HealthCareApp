@@ -81,29 +81,61 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="50dp"
                 android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/tv_hospitalWebsite"
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Web Site: "
-                android:textSize="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="50dp"
-                android:textColor="@color/white"/>        </LinearLayout>
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Website: "
+                    android:textSize="15dp"
+                    android:layout_weight="2"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="50dp"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tv_hospitalWebsite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Web Site: "
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
 
     </RelativeLayout>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/hospitalTablayout"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#9C1730A7"
-        android:textAlignment="center"
-        app:tabIndicatorColor="@color/card_bg_color"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/white" />
+        android:text="View All Doctors"
+        android:textColor="@color/white"
+        />
+
+
+<!--    <android.support.design.widget.TabLayout-->
+<!--        android:id="@+id/hospitalTablayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#9C1730A7"-->
+<!--        android:textAlignment="center"-->
+<!--        app:tabIndicatorColor="@color/card_bg_color"-->
+<!--        app:tabSelectedTextColor="@color/white"-->
+<!--        app:tabTextColor="@color/white" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -149,11 +181,1080 @@
 
     </LinearLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/hospitalViewPager"
+<!--    <android.support.v4.view.ViewPager-->
+<!--        android:id="@+id/hospitalViewPager"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        />-->
+
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:id="@+id/scrollView_department"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="41dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_heart" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Cardiology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_cardiology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_dentist"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Dentist"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_dentist"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_skin" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Dermatology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_dermatology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            //Row 2
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_endocrine"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Endocrine"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_endocrine"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_consultancy"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="ENT"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_ent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_gastrology"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Gastrology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_gastrology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            //Row 3
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/physician"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="General Physician"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_physician"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_woman"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Gynaecology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_gynaecology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_nephrology"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Nephrology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_nephrology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:id="@+id/doctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></FrameLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            //Row4
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_neurology"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Neurology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_neurology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_cancer"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Oncology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_oncology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_eye"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Opthalmology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_opthalmology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            //Row5
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_orthopedic"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Orthopedic"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_orthopedic"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_baby_boy"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Paediatry"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_paediatry"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_pathology"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Pathology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_pathology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            //Row 6
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_confusion"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Psychiatry"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_psychiatry"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_pulmonology"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Pulmonology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_pulmonology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_pathology" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Radiology"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_radiology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            //Row 7
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_surgeon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Surgeon"/>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_surgeon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                android:src="@drawable/ic_urology"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:text="Urology"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fl_urology"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="25dp"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColor"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"/>
+
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fogy"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
 
 
 

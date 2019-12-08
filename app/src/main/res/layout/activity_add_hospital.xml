@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
-
+            android:id="@+id/txtInpute_hospital_name"
             android:theme="@style/TextLabel">
 
             <android.support.design.widget.TextInputEditText
@@ -88,6 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextLabel"
+            android:id="@+id/txtInpute_hospital_address"
             app:errorEnabled="true">
 
             <android.support.design.widget.TextInputEditText
@@ -100,18 +101,14 @@
                 android:paddingLeft="7.0dip"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
-                android:textSize="14sp"
-
-                />
-
-
+                android:textSize="14sp"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextLabel"
+            android:id="@+id/txtInpute_hospital_contact"
             app:errorEnabled="true">
-
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/txt_hospital_contact"
                 android:layout_width="match_parent"
@@ -123,37 +120,25 @@
                 android:paddingLeft="7.0dip"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
-                android:textSize="14sp"
-
-                />
-
-
+                android:textSize="14sp" />
         </android.support.design.widget.TextInputLayout>
-
-
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/TextLabel"
             app:errorEnabled="true">
-
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/txt_hospital_about"
+                android:id="@+id/txt_hospital_website"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:hint="About "
+                android:layout_height="wrap_content"
+                android:hint="Website"
                 android:imeOptions="actionNext"
                 android:inputType="textMultiLine"
                 android:paddingLeft="7.0dip"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
-                android:textSize="14sp"
-
-                />
-
-
+                android:textSize="14sp" />
         </android.support.design.widget.TextInputLayout>
-
         <Button
             android:id="@+id/btn_addHospital"
             android:layout_width="match_parent"
