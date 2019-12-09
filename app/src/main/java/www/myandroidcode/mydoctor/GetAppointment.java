@@ -153,6 +153,7 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 spinnerValue = spinner_hospital_name.getItemAtPosition(i).toString();
+                System.out.println(i);
             }
 
             @Override

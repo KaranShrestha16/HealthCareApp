@@ -73,7 +73,7 @@ public class DoctorWithDepartment extends AppCompatActivity {
                        Toast.makeText(DoctorWithDepartment.this, "Data Not Found", Toast.LENGTH_SHORT).show();
                    }else {
                        Log.d("Data", doctor_hospitalModelsData+"");
-                        adapter= new  DoctorAdapter(DoctorWithDepartment.this, doctor_hospitalModelsData);
+                       adapter= new  DoctorAdapter(DoctorWithDepartment.this, doctor_hospitalModelsData);
                        recyclerView.setAdapter(adapter);
                        recyclerView.setLayoutManager(new LinearLayoutManager(DoctorWithDepartment.this));
 

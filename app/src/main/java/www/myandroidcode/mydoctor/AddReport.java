@@ -34,6 +34,7 @@ import java.util.Calendar;
 
 import API.PharmacyAPI;
 import API.Url;
+import Model.ReportModel;
 import Model.ResponseFromAPI;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -91,7 +92,41 @@ public class AddReport extends AppCompatActivity implements DatePickerDialog.OnD
         btn_addReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Validation();
+                if(Validation()){
+                    ReportModel reportModel = new ReportModel();
+                    reportModel.setPATIENT_ID(Url.id);
+                    reportModel.setREPORT_IMAGE(imageName);
+                    reportModel.setREPORT_DATE(tv_showDateReport.getText().toString().trim());
+                    reportModel.setREPORT_NAME(txt_reportName.getText().toString().trim());
+                    reportModel.setDESCRIPTION(txt_reportDescription.getText().toString().trim());
+
+                    PharmacyAPI pharmacyAPI= Url.getInstance().create(PharmacyAPI.class);
+                    Call<ResponseFromAPI> responseFromAPICall= pharmacyAPI.addReport(Url.accessToken,reportModel);
+                    responseFromAPICall.enqueue(new Callback<ResponseFromAPI>() {
+                        @Override
+                        public void onResponse(Call<ResponseFromAPI> call, Response<ResponseFromAPI> response) {
+                            if(!response.isSuccessful()){
+                                Toast.makeText(AddReport.this, response.code(), Toast.LENGTH_SHORT).show();
+                                return;
+                            }else{
+                                if(response.body().getStatus()){
+                                    Toast.makeText(AddReport.this, "Report Insert Successfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent= new Intent(AddReport.this, Report.class);
+                                    startActivity(intent);
+                                    finish();
+                                }else {
+                                    Toast.makeText(AddReport.this, "Insert Fail", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseFromAPI> call, Throwable t) {
+
+                        }
+                    });
+
+                }
             }
         });
 
@@ -216,6 +251,7 @@ public class AddReport extends AppCompatActivity implements DatePickerDialog.OnD
         String name= txtInpute_reportName.getEditText().getText().toString().trim();
         String description= txtInpute_reportDescription.getEditText().getText().toString().trim();
         String date= tv_showDateReport.getText().toString().trim();
+        Log.d("Image nmae", imageName+"");
 
         if(name.isEmpty()){
             txtInpute_reportName.setError("Report Name Required ");
@@ -227,26 +263,16 @@ public class AddReport extends AppCompatActivity implements DatePickerDialog.OnD
         }else if(date.isEmpty()){
             txtInpute_reportName.setError(null);
             txtInpute_reportDescription.setError(null);
+            txtInpute_reportDescription.setFocusable(true);
             tv_showDateReport.setText("Report Date required");
-            return  false;
-        }else if(imageName.isEmpty()){
-            txtInpute_reportName.setError(null);
-            txtInpute_reportDescription.setError(null);
-            imageError.setText("Report Date required");
             return  false;
         }else{
             txtInpute_reportName.setError(null);
             txtInpute_reportDescription.setError(null);
-            imageError.setText(null);
+            imageError.setText("Report Imagedd required");
+            return true;
 
         }
-
-
-
-
-
-
-        return true;
     }
 
 

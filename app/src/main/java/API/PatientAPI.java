@@ -16,6 +16,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
@@ -37,9 +38,9 @@ public interface PatientAPI {
     @GET("mobilehealthcare/v1/patient/{id}")
     Call<PatientModel> getPatientById( @Header("Authorization") String accessToken,@Path("id") int id);
 
-    @Multipart
-    @POST("/api/v1/uploadResume")
-    Call<ResponseFromAPI> uploadResume(@Part MultipartBody.Part myResume);
+    @PUT("mobilehealthcare/v1/patient/{id}")
+    Call<ResponseFromAPI> updateUserProfile(@Header("Authorization") String accessToken,@Body PatientModel patientModel,@Path("id") int id  );
+
 
     @GET("mobilehealthcare/v1/patient/getappointmenthistory/{id}")
     Call<List<AppointmentHistoryModel>> getAppointmentHistory(@Header("Authorization") String accessToken,@Path("id") int id );
