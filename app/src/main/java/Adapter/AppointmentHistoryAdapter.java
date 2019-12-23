@@ -58,6 +58,7 @@ public class AppointmentHistoryAdapter extends RecyclerView.Adapter<AppointmentH
         holder.tv_hospitalName.setText("Hospital Name:  "+appointmentHistoryDate.get(position).getHOSPITAL_NAME());
         holder.tv_department.setText("Qualification :  "+appointmentHistoryDate.get(position).getQUALIFICATION());
         holder.tv_docvtorName.setText("Doctor Name:  "+appointmentHistoryDate.get(position).getDOCTOR_NAME());
+        holder.tv_appointment_symptoms.setText("Symptoms :  "+appointmentHistoryDate.get(position).getCURRENT_SYMPTOMS());
         holder.tv_birthdate.setText("Appointment Date:  "+appointmentHistoryDate.get(position).getAPPOINTMENT_DATE());
 
     }
@@ -69,7 +70,7 @@ public class AppointmentHistoryAdapter extends RecyclerView.Adapter<AppointmentH
 
 
     public class AppointmentHistoryAdapterHolder extends RecyclerView.ViewHolder{
-        private TextView tv_hospitalName,tv_docvtorName,tv_birthdate,tv_department;
+        private TextView tv_hospitalName,tv_docvtorName,tv_birthdate,tv_department,tv_appointment_symptoms;
         private LinearLayout appointmnetHistory_layout;
         private ImageView hospital_image;
         public AppointmentHistoryAdapterHolder(View itemView) {
@@ -79,6 +80,7 @@ public class AppointmentHistoryAdapter extends RecyclerView.Adapter<AppointmentH
             tv_docvtorName= itemView.findViewById(R.id.tv_doctorName_appointment);
             tv_birthdate= itemView.findViewById(R.id.tv_appointment_date);
             tv_department=itemView.findViewById(R.id.tv_department_appointmentHistory);
+            tv_appointment_symptoms=itemView.findViewById(R.id.tv_appointment_symptoms);
             hospital_image=itemView.findViewById(R.id.image_hospital);
 
         }

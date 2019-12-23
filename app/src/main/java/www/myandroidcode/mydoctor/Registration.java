@@ -83,7 +83,7 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
                   patientModel.setBIRTHDATE(txt_birthdate.getEditText().getText().toString().trim());
                   patientModel.setEMAIL(txt_email.getEditText().getText().toString().trim());
                   patientModel.setPASSWORD(txt_password.getEditText().getText().toString().trim());
-                  patientModel.setIMAGE(" ");
+                  patientModel.setIMAGE("myImage-1575685501226.png");
                   patientModel.setBLOOD_GROUP("null");
 
 

@@ -37,69 +37,57 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_doctor_appointmentNext"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:src="@drawable/ic_doctor"/>
+            android:src="@drawable/ic_doctor" />
 
         <TextView
             android:id="@+id/tv_doctorName_appointmentNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="25dp"
             android:layout_marginTop="10dp"
-            android:text="Dr.Karan"/>
+            android:text="Dr.Karan"
+            android:textAlignment="center"
+            android:textSize="25dp" />
+
         <TextView
             android:id="@+id/tv_department_appointmentNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="19dp"
             android:layout_marginTop="10dp"
-            android:text="Department: Cardiology"/>
+            android:text="Department: Cardiology"
+            android:textAlignment="center"
+            android:textSize="19dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Select Hospital"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp" />
+        <Spinner
+            android:id="@+id/spinner_hospital_name"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            />
 
-
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="30dp"
-           android:orientation="horizontal">
-
-           <TextView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_weight="2"
-               android:text="Select Hospital"
-               android:textColor="@color/colorPrimaryDark"
-               android:textSize="18dp" />
-
-           <Spinner
-               android:id="@+id/spinner_hospital_name"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:background="@drawable/search_input_style1"
-
-               />
-       </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/txt_symptomsNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintTextAppearance="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
-            app:errorEnabled="true">
+            android:layout_marginBottom="10dp"
+            android:textColorHint="@color/colorPrimaryDark"
+            app:errorEnabled="true"
+            app:hintTextAppearance="@color/colorPrimaryDark">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_symptomsNext"
@@ -107,10 +95,10 @@
                 android:layout_height="wrap_content"
                 android:hint="Current Symptoms"
                 android:imeOptions="actionNext"
-                android:textColorHint="@color/colorPrimaryDark"
                 android:inputType="textEmailAddress"
                 android:maxLength="50"
                 android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="18dp" />
         </android.support.design.widget.TextInputLayout>
 
@@ -120,37 +108,33 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Pick Appointment Date"
-            android:textColorHint="@color/colorPrimaryDark"
             android:imeOptions="actionNext"
-            android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
             android:maxLength="50"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
             android:textSize="18dp" />
+
         <TextView
             android:id="@+id/text_showDateNext"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/colorPrimaryDark"
             android:imeOptions="actionNext"
-            android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
             android:maxLength="50"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
             android:textSize="20sp" />
-
 
 
         <Button
             android:id="@+id/btn_getAppointmentNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Book Appointment"
-            android:textColor="@color/white"
-            android:background="@drawable/search_input_style1"
             android:layout_marginTop="20dp"
-            />
-
-
-
+            android:background="@drawable/search_input_style1"
+            android:text="Book Appointment"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>

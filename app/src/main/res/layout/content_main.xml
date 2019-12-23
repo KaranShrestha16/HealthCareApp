@@ -466,12 +466,12 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="15dp"
                                 android:text= "Health Packages"/>
+
+                            <FrameLayout
+                                android:id="@+id/fl_healthPackages"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"></FrameLayout>
                         </LinearLayout>
-                        <FrameLayout
-                            android:id="@+id/fl_healthPackages"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                        </FrameLayout>
 
                     </RelativeLayout>
 

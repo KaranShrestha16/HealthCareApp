@@ -55,18 +55,19 @@
         android:textSize="16sp"
         android:textAlignment="center"
         android:layout_marginTop="5dp" />
+    <TextView
+        android:id="@+id/tv_appointment_symptoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Symptoms:  "
+        android:textColor="#c6c6c6"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp" />
 
 
-        <TextView
-            android:id="@+id/tv_TakeAppointment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="15sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="10dp"
-            />
+
 
 
 </LinearLayout>

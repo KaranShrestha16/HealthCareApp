@@ -135,6 +135,156 @@
 
 
         <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_health"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:text="Blood Bank"/>
+                </LinearLayout>
+                <FrameLayout
+                    android:id="@+id/fl_admin_bloodbank"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </FrameLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    //Row 2
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_pharmacy"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:text="Pharmacy"/>
+                </LinearLayout>
+                <FrameLayout
+                    android:id="@+id/fl_admin_pharmacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </FrameLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_ambulance"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:text= "Ambulance"/>
+                </LinearLayout>
+                <FrameLayout
+                    android:id="@+id/fl_admin_ambulance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </FrameLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="#FFFFFF"
@@ -166,13 +316,15 @@
                         android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="15dp"
-                        android:text="Get Appointment"/>
+                        android:text="Appointment"/>
+
+                    <FrameLayout
+                        android:id="@+id/fl_admin_appointment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginRight="0dp"></FrameLayout>
                 </LinearLayout>
-                <FrameLayout
-                    android:id="@+id/fl_admin_appointment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </FrameLayout>
 
             </RelativeLayout>
 

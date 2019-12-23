@@ -45,7 +45,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 
-public class GetAppointment extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class GetAppointment extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener {
     private ImageView back, tv_doctor_image;
     private Toolbar toolbar;
     private TextView tv_doctorName, date, department, show;
@@ -73,11 +73,6 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
         show = findViewById(R.id.text_showDateNext);
         spinner_hospital_name = findViewById(R.id.spinner_hospital_name);
         setToolbar();
-
-        hospital_id=2;
-        
-
-
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             doctor_id = bundle.getInt("doctot_id12");
@@ -136,6 +131,16 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
 
                         }
 
+                        ArrayAdapter arrayAdapterSpinner = new ArrayAdapter(getApplication(), android.R.layout.simple_spinner_item, hospital_nameList);
+                        arrayAdapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinner_hospital_name.setAdapter(arrayAdapterSpinner);
+
+
+
+
+
+
+
                     }
                 }
             }
@@ -146,21 +151,10 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
             }
         });
 
-        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, hospital_nameList);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_hospital_name.setAdapter(aa);
-        spinner_hospital_name.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                spinnerValue = spinner_hospital_name.getItemAtPosition(i).toString();
-                System.out.println(i);
-            }
+        spinner_hospital_name.setOnItemSelectedListener(this);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
 
-            }
-        });
+
 
 
         date.setOnClickListener(new View.OnClickListener() {
@@ -173,13 +167,15 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
         btn_appointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (Validation()) {
+                    Toast.makeText(GetAppointment.this, show.getText()+"ggg", Toast.LENGTH_SHORT).show();
                     AppointmentModel appointmentModel = new AppointmentModel();
                     appointmentModel.setHOSPITAL_ID(hospital_id);
                     appointmentModel.setDOCTOR_ID(doctor_id);
                     appointmentModel.setPATIENT_ID(Url.id);
                     appointmentModel.setCURRENT_SYMPTOMS(symptoms.getText().toString().trim());
-                    appointmentModel.setAPPOINTMENT_DATE(date.getText().toString().trim());
+                    appointmentModel.setAPPOINTMENT_DATE(show.getText().toString().trim());
                     appointmentModel.setPATIENT_ID(Url.id);
                     PatientAPI patientAPI = Url.getInstance().create(PatientAPI.class);
                     Call<ResponseFromAPI>  responseFromAPICall= patientAPI.getDoctorAppointment(Url.accessToken,appointmentModel);
@@ -192,6 +188,9 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
                             }else{
                                 if(response.body().getStatus()){
                                     Toast.makeText(GetAppointment.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Intent intent= new Intent(GetAppointment.this, MainActivity.class);
+                                    startActivity(intent);
+
                                 }else {
                                     Toast.makeText(GetAppointment.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
@@ -211,7 +210,11 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
             }
         });
 
+
+
     }
+
+
 
     private void setToolbar() {
         toolbar = findViewById(R.id.toolbarGetAppointment);
@@ -261,7 +264,6 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
             return false;
         }
         text_symptoms.setError(null);
-        show.setText(null);
         return true;
     }
 
@@ -272,4 +274,13 @@ public class GetAppointment extends AppCompatActivity implements DatePickerDialo
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        hospital_id = hospital_idList.get((int) adapterView.getItemIdAtPosition(i));
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

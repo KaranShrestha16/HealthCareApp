@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -42,8 +43,15 @@ public class Hospitals extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospitals);
         recyclerView= findViewById(R.id.hospitalRecycleView);
+
+
         setToolbar();
         LoadHospiyalData();
+
+
+
+
+
     }
 
     public void LoadHospiyalData() {

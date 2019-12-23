@@ -1,7 +1,7 @@
 package Model;
 
 public class AppointmentHistoryModel {
-    private String HOSPITAL_NAME,DOCTOR_NAME, APPOINTMENT_DATE, QUALIFICATION, IMAGE;
+    private String HOSPITAL_NAME,DOCTOR_NAME, APPOINTMENT_DATE, QUALIFICATION, IMAGE, CURRENT_SYMPTOMS;
 
     public String getHOSPITAL_NAME() {
         return HOSPITAL_NAME;
@@ -41,5 +41,13 @@ public class AppointmentHistoryModel {
 
     public void setIMAGE(String IMAGE) {
         this.IMAGE = IMAGE;
+    }
+
+    public String getCURRENT_SYMPTOMS() {
+        return CURRENT_SYMPTOMS;
+    }
+
+    public void setCURRENT_SYMPTOMS(String CURRENT_SYMPTOMS) {
+        this.CURRENT_SYMPTOMS = CURRENT_SYMPTOMS;
     }
 }
