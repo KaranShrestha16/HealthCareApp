@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Ambulance">
+    tools:context=".AdminAmbulance">
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarAmbulance"
+        android:id="@+id/toolbarAmbulance_admin"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/gradient"
@@ -22,10 +22,18 @@
             android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/ambulanceBack"
+            android:id="@+id/ambulanceBack_admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back_24dp" />
+        <ImageView
+            android:id="@+id/admin_addAmbulance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ic_add" />
+
 
 
     </android.support.v7.widget.Toolbar>
@@ -39,7 +47,7 @@
             android:scaleType="fitXY"/>
 
         <EditText
-            android:id="@+id/txt_searchAmbulance"
+            android:id="@+id/txt_searchAmbulance_admin"
             android:background="@drawable/search_input_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,12 +59,11 @@
             android:textAlignment="center"
             />
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/bambulanceRecycleView"
+            android:id="@+id/bambulanceRecycleView_admin"
             android:layout_width="match_parent"
             android:layout_marginTop="40dp"
-            android:layout_below="@id/txt_searchAmbulance"
+            android:layout_below="@id/txt_searchAmbulance_admin"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
-
 
 </LinearLayout>

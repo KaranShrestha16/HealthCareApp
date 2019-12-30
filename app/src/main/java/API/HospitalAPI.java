@@ -26,6 +26,11 @@ public interface HospitalAPI {
     Call<ResponseFromAPI> addHospital(@Header("Authorization") String accessToken, @Body HospitalModel hospitalModel);
 
 
+    @GET("mobilehealthcare/v1/hospital/getAllDoctors/{id}")
+    Call<List<Doctor_HospitalModel>> getDoctorById(@Header("Authorization") String accessToken, @Path("id") int id);
+
     @GET("mobilehealthcare/v1/hospital/getAllDoctorsWithDepartment/{id}")
     Call<List<Doctor_HospitalModel>> getDoctorByHospitalId(@Header("Authorization") String accessToken, @Header("Department") String department, @Path("id") int id);
+
+
 }

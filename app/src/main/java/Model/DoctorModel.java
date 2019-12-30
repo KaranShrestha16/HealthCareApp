@@ -2,7 +2,7 @@ package Model;
 
 public class DoctorModel {
     private  int DOCTOR_ID;
-    private String DOCTOR_NAME,ADDRESS,CONTACT,GENDER,QUALIFICATION, DOCTOR_IMAGE ;
+    private String DOCTOR_NAME,DOCTOR_ADDRESS,DOCTOR_CONTACT,GENDER,QUALIFICATION, DOCTOR_IMAGE;
 
 
     public int getDOCTOR_ID() {
@@ -21,20 +21,20 @@ public class DoctorModel {
         this.DOCTOR_NAME = DOCTOR_NAME;
     }
 
-    public String getADDRESS() {
-        return ADDRESS;
+    public String getDOCTOR_ADDRESS() {
+        return DOCTOR_ADDRESS;
     }
 
-    public void setADDRESS(String ADDRESS) {
-        this.ADDRESS = ADDRESS;
+    public void setDOCTOR_ADDRESS(String DOCTOR_ADDRESS) {
+        this.DOCTOR_ADDRESS = DOCTOR_ADDRESS;
     }
 
-    public String getCONTACT() {
-        return CONTACT;
+    public String getDOCTOR_CONTACT() {
+        return DOCTOR_CONTACT;
     }
 
-    public void setCONTACT(String CONTACT) {
-        this.CONTACT = CONTACT;
+    public void setDOCTOR_CONTACT(String DOCTOR_CONTACT) {
+        this.DOCTOR_CONTACT = DOCTOR_CONTACT;
     }
 
     public String getGENDER() {

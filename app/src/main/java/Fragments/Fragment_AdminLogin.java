@@ -3,8 +3,10 @@ package Fragments;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,8 +30,11 @@ import www.myandroidcode.mydoctor.R;
 public class Fragment_AdminLogin extends Fragment {
     private FrameLayout fl_adminLogin;
     private TextInputLayout txt_adminEmail,txt_adminPassword;
+    private TextInputEditText textEmailAddress,textPassword;
+
     private TextView tv_adminForget_password;
-    private ImageView facebook; private static final Pattern PASSWORD_PATTERN= Pattern.compile("^"+"(?=.*[0-9])"+ "(?=.*[a-z])" +"(?=.*[A-Z])"+"(?=.*[@#$%^&+=])"+"(?=\\S+$)"+".{8,}"+"$");
+    private ImageView facebook;
+    private static final Pattern PASSWORD_PATTERN= Pattern.compile("^"+"(?=.*[0-9])"+ "(?=.*[a-z])" +"(?=.*[A-Z])"+"(?=.*[@#$%^&+=])"+"(?=\\S+$)"+".{8,}"+"$");
 
 
 
@@ -42,6 +47,13 @@ public class Fragment_AdminLogin extends Fragment {
         txt_adminEmail = view.findViewById(R.id.txt_adminEmail);
         txt_adminPassword = view.findViewById(R.id.txt_adminPassword_login);
         tv_adminForget_password = view.findViewById(R.id.tv_adminForgotPassword);
+        textEmailAddress = view.findViewById(R.id.textEmailAddress);
+        textPassword = view.findViewById(R.id.textPassword);
+
+        textEmailAddress.setText("admin@gmail.com");
+        textPassword.setText("Admin@123");
+
+
 
         fl_adminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +71,8 @@ public class Fragment_AdminLogin extends Fragment {
                                 return;
                             }else {
                                 if(response.body().getStatus()){
+                                    Url.accessToken = response.body().getAccessToken();
+                                    Url.id = response.body().getId();
                                     Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getContext(), AdminDashboard.class);
                                     startActivity(intent);

@@ -1,8 +1,8 @@
 package www.myandroidcode.mydoctor;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -25,18 +25,16 @@ import retrofit2.Response;
 
 public class AdminPharmacy extends AppCompatActivity {
     private Toolbar toolbarPharmacy;
-    private ImageView back;
+    private ImageView back,add;
     private RecyclerView recyclerView;
     private PharmacyAdapter pharmacyAdapter;
     private EditText txtSearch;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__admin_phamacy);
-
+        setContentView(R.layout.activity_admin_pharmacy);
         setToolbar();
-        recyclerView= findViewById(R.id.pharmacyRecycleView);
+        recyclerView= findViewById(R.id.pharmacyRecycleView_admin);
 
         PharmacyAPI pharmacyAPI = Url.getInstance().create(PharmacyAPI.class);
         Call<List<PharmacyModel>> pharmacyData= pharmacyAPI.getAll(Url.accessToken);
@@ -51,7 +49,7 @@ public class AdminPharmacy extends AppCompatActivity {
                     pharmacyAdapter= new PharmacyAdapter(AdminPharmacy.this, pharmacyModelList);
                     recyclerView.setAdapter(pharmacyAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(AdminPharmacy.this));
-                    txtSearch = findViewById(R.id.txt_search_pharmacy);
+                    txtSearch = findViewById(R.id.txt_search_pharmacy_admin);
                     txtSearch.addTextChangedListener(new TextWatcher() {
                         @Override
                         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -86,19 +84,27 @@ public class AdminPharmacy extends AppCompatActivity {
     }
 
     private void setToolbar() {
-        toolbarPharmacy= findViewById(R.id.toolbarPharmacy);
+        toolbarPharmacy= findViewById(R.id.toolbarPharmacyadmin);
         setSupportActionBar(toolbarPharmacy);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        back=findViewById(R.id.pharmacyBack);
+        back=findViewById(R.id.pharmacyBackadmin);
+        add=findViewById(R.id.admin_pharmacy);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(AdminPharmacy.this,MainActivity.class);
+                Intent intent= new Intent(AdminPharmacy.this,AdminDashboard.class);
                 startActivity(intent);
                 finish();
             }
         });
-
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(AdminPharmacy.this, AddPharmacy.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }

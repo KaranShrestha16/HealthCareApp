@@ -19,6 +19,7 @@ import java.util.List;
 
 import API.HospitalAPI;
 import API.Url;
+import Adapter.AdminHospitalAdapter;
 import Adapter.HospitalAdapter;
 import Model.HospitalModel;
 import retrofit2.Call;
@@ -29,7 +30,7 @@ public class AdminHospital extends AppCompatActivity {
     private ImageView back, addHospital;
     private Toolbar toolbar_adminHospital;
     private RecyclerView recyclerView;
-    private HospitalAdapter  hospitalAdapter;
+    private AdminHospitalAdapter adminHospitalAdapter;
     private EditText searchButton;
 
 
@@ -40,6 +41,7 @@ public class AdminHospital extends AppCompatActivity {
         recyclerView= findViewById(R.id.admin_hospitalRecycleView);
         setToolbar();
         LoadHospiyalData();
+
     }
 
     private void setToolbar() {
@@ -68,52 +70,52 @@ public class AdminHospital extends AppCompatActivity {
 
     }
     public void LoadHospiyalData() {
-
-        final HospitalAPI hospitalAPI= Url.getInstance().create(HospitalAPI.class);
+        HospitalAPI hospitalAPI = Url.getInstance().create(HospitalAPI.class);
         Call<List<HospitalModel>> hospitalData = hospitalAPI.getAll(Url.accessToken);
         hospitalData.enqueue(new Callback<List<HospitalModel>>() {
             @Override
             public void onResponse(Call<List<HospitalModel>> call, Response<List<HospitalModel>> response) {
-                if (!response.isSuccessful()){
-                    Toast.makeText(AdminHospital.this, "Hospital Data Cannot load on recyclearview: "+response.code(), Toast.LENGTH_SHORT).show();
+                if(!response.isSuccessful()){
+                    Toast.makeText(AdminHospital.this, "Hospital Datat Cannot load on recyclearview: "+response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }else {
-                    List<HospitalModel> hospitalModelList= response.body();
-                    hospitalAdapter= new HospitalAdapter(AdminHospital.this,hospitalModelList);
-                    recyclerView.setAdapter(hospitalAdapter);
-                    recyclerView.setLayoutManager( new LinearLayoutManager(AdminHospital.this));
-                    searchButton = findViewById(R.id.admin_hospitalSearchButton);
-                    searchButton.addTextChangedListener(new TextWatcher() {
-                        @Override
-                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(response.body().isEmpty()){
+                        Toast.makeText(AdminHospital.this, "Hospital Data is empty", Toast.LENGTH_SHORT).show();
+                    }else{
+                        List<HospitalModel> hospitalModelList= response.body();
+                        adminHospitalAdapter= new AdminHospitalAdapter(AdminHospital.this,hospitalModelList);
+                        recyclerView.setAdapter(adminHospitalAdapter);
+                        recyclerView.setLayoutManager( new LinearLayoutManager(AdminHospital.this));
+                        searchButton = findViewById(R.id.admin_hospitalSearchButton);
+                        searchButton.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                        }
+                            }
 
-                        @Override
-                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                            hospitalAdapter.getFilter().filter(charSequence);
-                        }
+                            @Override
+                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                adminHospitalAdapter.getFilter().filter(charSequence);
+                            }
 
-                        @Override
-                        public void afterTextChanged(Editable editable) {
+                            @Override
+                            public void afterTextChanged(Editable editable) {
 
-                        }
-                    });
+                            }
+                        });
 
-
-
+                    }
                 }
-
             }
 
             @Override
             public void onFailure(Call<List<HospitalModel>> call, Throwable t) {
-
+                Toast.makeText(AdminHospital.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
     }
-
-
-
-
 }

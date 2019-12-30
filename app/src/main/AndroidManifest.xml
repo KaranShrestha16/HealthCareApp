@@ -14,7 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddReport"></activity>
+        <activity android:name=".AddPharmacy"></activity>
+        <activity android:name=".AddAmbulance" />
+        <activity android:name=".AddBloodBank" />
+        <activity android:name=".AdminAmbulance" />
+        <activity android:name=".AdminPharmacy" />
+        <activity android:name=".BloodBank_Admin" />
+        <activity android:name=".HealthPackages" />
+        <activity android:name=".AddReport" />
         <activity android:name=".Report" />
         <activity android:name=".AppointmentHistoty" />
         <activity android:name=".ViewProfile" />

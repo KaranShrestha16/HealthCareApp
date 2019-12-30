@@ -53,6 +53,7 @@ public class AddHospital extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_hospital);
         setToolbar();
+        imageName= "myImage-1577204920296.png";
         btn_addHospital=findViewById(R.id.btn_addHospital);
         btn_addImage_hopsital=findViewById(R.id.btn_addImage_hopsital);
         txtInpute_hospital_name=findViewById(R.id.txtInpute_hospital_name);
@@ -83,7 +84,6 @@ public class AddHospital extends AppCompatActivity {
                 }
             }
         });
-
         btn_addHospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,7 +107,6 @@ public class AddHospital extends AppCompatActivity {
                                 Toast.makeText(AddHospital.this, response.code(), Toast.LENGTH_SHORT).show();
                                 return;
                             }else{
-
                                 if(response.body().getStatus()){
                                     Toast.makeText(AddHospital.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                     Intent intent= new Intent( AddHospital.this, AdminHospital.class);
@@ -122,7 +121,7 @@ public class AddHospital extends AppCompatActivity {
                                     txt_hospital_icu.setText(null);
                                     txt_hospital_general.setText(null);
                                     txt_hospital_emergency.setText(null);
-
+//
                                 }
                             }
                         }
@@ -132,10 +131,6 @@ public class AddHospital extends AppCompatActivity {
                             Toast.makeText(AddHospital.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-
-
-
-
 
 
 
@@ -296,7 +291,7 @@ public class AddHospital extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddHospital.this, AdminHospital.class);
+                Intent intent = new Intent(AddHospital.this, AdminDashboard.class);
                 startActivity(intent);
                 finish();
             }

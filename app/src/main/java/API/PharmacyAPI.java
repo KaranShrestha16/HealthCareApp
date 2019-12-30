@@ -21,7 +21,7 @@ public interface PharmacyAPI {
     Call<List<PharmacyModel>> getAll(@Header("Authorization") String accessToken);
 
 
-    @POST("mobilehealthcare/v1/pharmacy/add")
+    @POST("mobilehealthcare/v1/pharmacy/addPharmacy")
     Call<ResponseFromAPI> addPharamcy(@Header("Authorization") String accessToken, @Body PharmacyModel pharmacyModel);
 
 

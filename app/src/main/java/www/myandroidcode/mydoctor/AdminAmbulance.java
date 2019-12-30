@@ -1,8 +1,8 @@
 package www.myandroidcode.mydoctor;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -25,22 +25,17 @@ import retrofit2.Response;
 
 public class AdminAmbulance extends AppCompatActivity {
     private Toolbar toolbarAmbulance;
-    private ImageView back;
+    private ImageView admin_addAmbulance,back;
     private RecyclerView recyclerView;
     private EditText searchButton;
-    private AmbulanceAdapter  ambulanceAdapter;
-
+    private AmbulanceAdapter ambulanceAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_ambulance);
-        recyclerView= findViewById(R.id.bambulanceRecycleView);
-
+        recyclerView= findViewById(R.id.bambulanceRecycleView_admin);
         setToolbar();
         LoadHospiyalData();
-
-
-
     }
 
     private void LoadHospiyalData() {
@@ -57,33 +52,26 @@ public class AdminAmbulance extends AppCompatActivity {
                     ambulanceAdapter= new AmbulanceAdapter(AdminAmbulance.this,ambulanceModelList);
                     recyclerView.setAdapter(ambulanceAdapter);
                     recyclerView.setLayoutManager( new LinearLayoutManager(AdminAmbulance.this));
-                    searchButton = findViewById(R.id.txt_searchAmbulance);
+                    searchButton = findViewById(R.id.txt_searchAmbulance_admin);
                     searchButton.addTextChangedListener(new TextWatcher() {
                         @Override
                         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                         }
-
                         @Override
                         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                             ambulanceAdapter.getFilter().filter(charSequence);
                         }
-
                         @Override
                         public void afterTextChanged(Editable editable) {
-
                         }
                     });
-
-
-
                 }
-
             }
 
             @Override
             public void onFailure(Call<List<AmbulanceModel>> call, Throwable t) {
-
+                Toast.makeText(AdminAmbulance.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -91,14 +79,24 @@ public class AdminAmbulance extends AppCompatActivity {
 
 
     private void setToolbar() {
-        toolbarAmbulance= findViewById(R.id.toolbarAmbulance);
+        toolbarAmbulance= findViewById(R.id.toolbarAmbulance_admin);
         setSupportActionBar(toolbarAmbulance);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        back=findViewById(R.id.ambulanceBack);
+        admin_addAmbulance=findViewById(R.id.admin_addAmbulance);
+        back=findViewById(R.id.ambulanceBack_admin);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(AdminAmbulance.this,MainActivity.class);
+                Intent intent= new Intent(AdminAmbulance.this,AdminDashboard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        admin_addAmbulance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(AdminAmbulance.this,AddAmbulance.class);
                 startActivity(intent);
                 finish();
             }
@@ -106,6 +104,6 @@ public class AdminAmbulance extends AppCompatActivity {
 
 
 
-    }
 
+    }
 }

@@ -32,7 +32,7 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
     private EditText txtBirthDate;
     private TextView tv_cancle;
     private Button btn_save;
-    private TextInputLayout txt_fname,txt_lname,txt_address,txt_contact, txt_birthdate,txt_email, txt_password,txt_re_password,txt_BirthDate;
+    private TextInputLayout txt_fname,txt_address,txt_contact, txt_birthdate,txt_email, txt_password,txt_re_password,txt_BirthDate;
     private static final Pattern PASSWORD_PATTERN= Pattern.compile("^"+"(?=.*[0-9])"+ "(?=.*[a-z])" +"(?=.*[A-Z])"+"(?=.*[@#$%^&+=])"+"(?=\\S+$)"+".{8,}"+"$");
     private RadioGroup rdGender;
     private RadioButton rbGender;
@@ -45,7 +45,6 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
         btn_save=findViewById(R.id.btn_save_registration);
         tv_cancle=findViewById(R.id.tv_cancle_registration);
         txt_fname=findViewById(R.id.txtFirstname);
-        txt_lname=findViewById(R.id.txtLastname);
         txt_address=findViewById(R.id.txtAddress);
         txt_contact=findViewById(R.id.txtcontact);
         txt_birthdate=findViewById(R.id.txt_BirthDate);
@@ -69,14 +68,13 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
                 Log.d("Birthdate",txt_birthdate.getEditText().getText().toString().trim());
 
               if(Validation()){
-                  String name= txt_fname.getEditText().getText().toString().trim()+" "+ txt_lname.getEditText().getText().toString().trim();
                   int selectedId = rdGender.getCheckedRadioButtonId();
                   rbGender = findViewById(selectedId);
                   String gender = rbGender.getText().toString().trim();
 
                   PatientAPI patientAPI= Url.getInstance().create(API.PatientAPI.class);
                   PatientModel patientModel= new PatientModel();
-                  patientModel.setNAME(name);
+                  patientModel.setNAME(txt_fname.getEditText().getText().toString().trim());
                   patientModel.setADDRESS(txt_address.getEditText().getText().toString().trim());
                   patientModel.setGENDER(gender);
                   patientModel.setCONTACT(txt_contact.getEditText().getText().toString().trim());
@@ -153,7 +151,6 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
     public Boolean Validation(){
 
         String fname= txt_fname.getEditText().getText().toString().trim();
-        String lname= txt_lname.getEditText().getText().toString().trim();
         String address= txt_address.getEditText().getText().toString().trim();
         String contact= txt_contact.getEditText().getText().toString().trim();
         String birthdate= txt_birthdate.getEditText().getText().toString().trim();
@@ -167,23 +164,12 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
         }else if(fname.length()< 2|| fname.length()> 15){
             txt_fname.setError("First Name should be at least 3 character ");
             return false;
-        }else if(lname.isEmpty()){
-            txt_fname.setError(null);
-            txt_lname.setError("Last name Field cannot be empty");
-            return false;
-        }else if(lname.length()< 2){
-
-            txt_fname.setError(null);
-            txt_lname.setError("Last Name should be at least 3 character ");
-            return false;
         }else if(address.isEmpty()){
             txt_fname.setError(null);
-            txt_lname.setError(null);
             txt_address.setError("Address Field cannot be empty");
             return false;
         }else if(address.length()< 5){
             txt_fname.setError(null);
-            txt_lname.setError(null);
             txt_address.setError("Address should be at least 5 character  ");
             return false;
         }else if(contact.isEmpty()){
@@ -237,7 +223,6 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
             return false;
         }else {
             txt_fname.setError(null);
-            txt_lname.setError(null);
             txt_address.setError(null);
             txt_contact.setError(null);
             txt_birthdate.setError(null);

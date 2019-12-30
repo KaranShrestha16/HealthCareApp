@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/admin_hospital_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/border"
+
+    >
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/txtHospital_admin_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/card_bg"
+        android:src="@drawable/bir_hospital" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_Hospital_admin_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:text="Bir Hospital International Hospital"
+            android:textSize="15dp"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_Hospital_admin_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="New Road, Kathmandu, Nepal"
+            android:drawableLeft="@drawable/icon_location"
+
+
+
+            />
+        <TextView
+            android:id="@+id/tv_Hospital_admin_contatc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="01-5012332, 98198989898"
+            android:drawableLeft="@drawable/icon_call"
+            />
+
+        <Button
+            android:id="@+id/btn_view_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/search_input_style1"
+            android:text="View Doctors"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

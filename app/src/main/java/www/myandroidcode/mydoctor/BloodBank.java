@@ -95,7 +95,7 @@ public class BloodBank extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(BloodBank.this,MainActivity.class);
+                Intent intent= new Intent(BloodBank.this,AdminDashboard.class);
                 startActivity(intent);
                 finish();
             }

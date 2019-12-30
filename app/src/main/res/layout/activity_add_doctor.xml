@@ -47,7 +47,7 @@
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_doctor"
+                android:id="@+id/img_doctor_addDoctor"
                 android:layout_marginTop="45dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
@@ -65,19 +65,21 @@
                 />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/txtInpute_doctor_name"
+                android:id="@+id/txtInpute_adddoctor_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                android:theme="@style/TextLabel">
+                android:theme="@style/TextLabel"
+                app:errorTextAppearance="@color/white">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/txt_doctor_name"
+                    android:id="@+id/txt_adddoctor_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Doctor Name"
                     android:imeOptions="actionNext"
                     android:inputType="text"
+                    android:maxLength="30"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:paddingLeft="7.0dip"
@@ -85,17 +87,19 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/txtInpute_doctor_address"
+                android:id="@+id/txtInpute_adddoctor_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:errorTextAppearance="@color/white"
                 android:theme="@style/TextLabel"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/txt_doctor_address"
+                    android:id="@+id/txt_adddoctor_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Doctor Address"
+                    android:maxLength="40"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:paddingLeft="7.0dip"
@@ -108,20 +112,21 @@
 
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/txtInpute_doctor_contact"
+                android:id="@+id/txtInpute_adddoctor_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:errorTextAppearance="@color/white"
                 android:theme="@style/TextLabel"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/txt_doctor_contact"
+                    android:id="@+id/txt_adddoctor_contact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Doctor Contact"
                     android:imeOptions="actionNext"
                     android:inputType="phone"
-                    android:maxLength="20"
+                    android:maxLength="10"
                     android:paddingLeft="7.0dip"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
@@ -132,20 +137,21 @@
 
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/txtInpute_doctor_qulification"
+                android:id="@+id/txtInpute_adddoctor_qulification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/TextLabel"
+                app:errorTextAppearance="@color/white"
                 app:errorEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/txt_doctor_qualification"
+                    android:id="@+id/txt_adddoctor_qualification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Qualification"
                     android:imeOptions="actionNext"
                     android:inputType="text"
-                    android:maxLength="20"
+                    android:maxLength="80"
                     android:paddingLeft="7.0dip"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
@@ -165,9 +171,11 @@
 
 
            <RadioGroup
+               android:id="@+id/radioGenderadmin"
                android:layout_width="wrap_content"
                android:layout_height="match_parent"
                android:layout_marginBottom="25dp"
+
                >
 
               <RadioButton
@@ -176,6 +184,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:textSize="15dp"
+                  android:shadowColor="@color/white"
                   android:textColor="@color/white"
                   android:text="Male"
                   />
@@ -185,6 +194,8 @@
                    android:layout_height="wrap_content"
                    android:textSize="15dp"
                    android:textColor="@color/white"
+                   android:textColorHint="@color/white"
+                   android:shadowColor="@color/white"
                    android:text="Female"
                    />
                <RadioButton
@@ -192,23 +203,37 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:textSize="15dp"
+                   android:shadowColor="@color/white"
                    android:textColor="@color/white"
                    android:text="Other"
                />
            </RadioGroup>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
 
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Select Department "
+                   android:layout_weight="2"
+                   android:textColor="@color/white"
+                   android:textSize="15sp"
+                   />
 
-            <Spinner
-                android:id="@+id/spinner_hospital_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/search_input_style"
-                android:layout_marginBottom="30dp"
-                android:contextClickable="true"
-                />
+               <Spinner
+                   android:id="@+id/spinner_department"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="2"
+                   android:layout_marginBottom="20dp"/>
+
+           </LinearLayout>
+
 
             <Button
-                android:id="@+id/btn_addHospital"
+                android:id="@+id/btn_addDoctor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"

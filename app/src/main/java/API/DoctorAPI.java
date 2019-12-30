@@ -5,6 +5,7 @@ import java.util.List;
 import Model.BloodBankModel;
 import Model.DoctorModel;
 import Model.Doctor_HospitalModel;
+import Model.Hospital_DoctorModel;
 import Model.ResponseFromAPI;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -20,7 +21,11 @@ public interface DoctorAPI {
 
 
     @POST("mobilehealthcare/v1/doctor/register")
-    Call<ResponseFromAPI> addBloodBank(@Header("Authorization") String accessToken, @Body BloodBankModel bloodBankModel);
+    Call<DoctorModel> addDoctor(@Header("Authorization") String accessToken, @Body DoctorModel doctorModel);
+
+
+    @POST("mobilehealthcare/v1/doctor/addDoctor_Hospital")
+    Call<ResponseFromAPI> addDoctorHospital(@Header("Authorization") String accessToken, @Body Hospital_DoctorModel doctor_hospitalModel);
 
 
     @GET("mobilehealthcare/v1/doctor/getAllDoctorsWithHospital/{id}")

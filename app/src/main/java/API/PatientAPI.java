@@ -20,7 +20,8 @@ import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
-public interface PatientAPI {
+public interface
+PatientAPI {
     @FormUrlEncoded
     @POST("mobilehealthcare/v1/patient/login")
     Call<ResponseFromAPI> CheckUser(@Field("email") String email, @Field("password")String password);
